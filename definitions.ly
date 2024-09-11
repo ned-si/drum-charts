@@ -33,21 +33,21 @@ allheads = \drummode {
 
 defnote = \drummode {
   bd4^\markup { \translate #'(0 . 4) "feet"} bda hhp hhc |
-  sn^\markup { \translate #'(0 . 4) "snare"} s ss s |
+  sn^\markup { \translate #'(0 . 4) "snare"} \parenthesize sn ss s |
   tomh^\markup { \translate #'(0 . 4) "toms"} toml tomfh tomfl |
   hh^\markup { \translate #'(0 . 4) "hihat"} s hho s |
   cymr^\markup { \translate #'(0 . 4) "ride"} s rb s |
-  cymc^\markup { \translate #'(0 . 4) "cymbals"} s cymch s |
+  cymc^\markup { \translate #'(0 . 4) "cymbals"} \parenthesize cymc cymch s |
   cb^\markup { \translate #'(0 . 4) "cowbell"} |
 }
 
 defname = \lyricmode {
   bd bda hhp hhc |
-  sn ss |
+  sn sn ss |
   tomh toml tomfh tomfl |
   hh hho |
   cymr rb |
-  cymc cymch |
+  cymc cymc cymch |
   cb |
 }
 
