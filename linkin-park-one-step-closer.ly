@@ -27,7 +27,7 @@ hands-hho = \drummode {
 }
 
 "hands-fill-1" = \drummode {
-  hho8[ hho] [<hho sn>16 tomh32 tomh toml16 toml]
+  hho8[ hho] <hho sn>16 tomh32 tomh toml16 toml
 }
 
 "feet-2" = \drummode {
@@ -54,7 +54,7 @@ hands-hho = \drummode {
       <<
         \new DrumVoice = "hands" {
           \numericTimeSignature
-          ^\markup { \bold "3×" }
+          ^\markup \bold "3×"
           \voiceOne
           \bar ".|:-|"
           \repeat unfold 2 {
@@ -69,7 +69,7 @@ hands-hho = \drummode {
           \voiceTwo
           \repeat unfold 3 {
             \"feet-3"
-          } |
+          }
           \"feet-2"
         }
       >>
