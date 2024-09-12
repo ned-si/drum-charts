@@ -54,9 +54,9 @@ hands-hho = \drummode {
       <<
         \new DrumVoice = "hands" {
           \numericTimeSignature
-          ^\markup \bold "3×"
           \voiceOne
           \bar ".|:-|"
+          ^\markup \bold "3×"
           \repeat unfold 2 {
             \hands-hho
           }
