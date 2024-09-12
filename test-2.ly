@@ -37,7 +37,7 @@ empty = \drummode {
     \new DrumStaff {
       % Set the instrument name to display "Intro" or any other section
       \set DrumStaff.instrumentName = #"Intro: 3"
-      
+
       \set DrumStaff.drumStyleTable = #(alist->hash-table custom-notes)
 
         % Voice for hands (stems up)
@@ -55,7 +55,7 @@ empty = \drummode {
     \new DrumStaff {
       % Set the instrument name to display "Intro" or any other section
       \set DrumStaff.instrumentName = #"Verse1: 4"
-      
+
       \set DrumStaff.drumStyleTable = #(alist->hash-table custom-notes)
 
       <<
