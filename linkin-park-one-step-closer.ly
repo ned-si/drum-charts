@@ -11,8 +11,7 @@
   \vspace #2  % Adjust this value to set the amount of space you need
 }
 
-empty = \drummode {
-  \numericTimeSignature
+"empty-4" = \drummode {
   \compressEmptyMeasures
   \override MultiMeasureRest.expand-limit = 1
     R1*4
@@ -20,35 +19,30 @@ empty = \drummode {
 
 hands-hh = \drummode {
   \numericTimeSignature
-    hh8[ hh] <hh sn>[ hh] hh8[ hh] <hh sn>[ hh]
+    hh8[ hh] <hh sn>[ hh]
 }
 
 hands-hho = \drummode {
-  \numericTimeSignature
-    hho8[ hho] <hho sn>[ hho] hho8[ hho] <hho sn>[ hho]
+    hho8[ hho] <hho sn>[ hho]
 }
 
 "hands-fill-1" = \drummode {
-  hho8[ hho] <hho sn>[ hho] hho8[ hho] [<hho sn>16 tomh32 tomh toml16 toml]
+  hho8[ hho] [<hho sn>16 tomh32 tomh toml16 toml]
 }
 
 "feet-2" = \drummode {
-  bd8[ bd] s4 bd8[ bd] s4
+  bd8[ bd] s4
 }
 
 "feet-3" = \drummode {
-  bd8[ bd] s16 bd8 s16 bd8[ bd] s16 bd8 s16
-}
-
-"feet-fill-1" = \drummode {
-  bd8[ bd] s16 bd8 s16 bd8[ bd] s4
+  bd8[ bd] s16 bd8 s16
 }
 
 \score {
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Guitar: 4"
       \set DrumStaff.drumStyleTable = #(alist->hash-table custom-notes)
-      \new DrumVoice = "hands" { \voiceOne \empty }
+      \new DrumVoice = "hands" { \numericTimeSignature \voiceOne \"empty-4" }
     }
 }
 
@@ -59,22 +53,26 @@ hands-hho = \drummode {
       \set DrumStaff.drumStyleTable = #(alist->hash-table custom-notes)
       <<
         \new DrumVoice = "hands" {
+          \numericTimeSignature
           ^\markup { \bold "3×" }
           \voiceOne
           \bar ".|:-|"
-          \hands-hho |
+          \repeat unfold 2 {
+            \hands-hho
+          }
           \bar ":|."
+          \hands-hho
           \"hands-fill-1"
           \bar "|."
         }
         \new DrumVoice = "feet" {
           \voiceTwo
-          \"feet-3" |
-          \"feet-fill-1"
+          \repeat unfold 3 {
+            \"feet-3"
+          } |
+          \"feet-2"
         }
       >>
     }
   >>
 }
-
-
