@@ -19,7 +19,9 @@
 
 \score {
   \new DrumStaff {
-    \set DrumStaff.instrumentName = #"Guitar: 4"
+    \override Score.MetronomeMark.outside-staff-horizontal-padding = 1
+    \tempo 4 = 95
+    \set DrumStaff.instrumentName = #"Pre-intro"
     \new DrumVoice = "hands" {
       \numericTimeSignature
       \voiceOne
