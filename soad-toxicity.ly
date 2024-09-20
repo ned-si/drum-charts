@@ -100,3 +100,71 @@
     }
   >>
 }
+
+\score {
+%  \layout{ ragged-right = ##f }
+  <<
+    \new DrumStaff {
+      \set DrumStaff.instrumentName = #"Verse1"
+      <<
+        \new DrumVoice = "hands" {
+          \time 12/8
+          \voiceOne
+          \bar ".|:-|"
+          \drummode {
+            cymc8 hh16 sn hh8 <hh sn> hh16 sn hh8 hh8 hh16 sn hh8 <hho sn> hh16 sn hh8 |
+            hh8 hh16 sn hh8 <hho sn> hh16 sn hh8 hh8 hh16 \parenthesize sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
+          }
+          \repeat volta 10 {
+            \drummode {
+              \alternative {
+                \volta 9 { cymc8 }
+                \volta 1,2,3,4,5,6,7,8,10 { hh8 }
+              }
+              hh16 sn hh8 <hh sn> hh16 sn hh8 
+              \alternative {
+                \volta 1,3,5,7,9 {
+                  hh8 hh16 sn hh8 <hh sn> hh16 sn hh8
+                }
+                \volta 2,4,6,8 {
+                  hh8 hh16 sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
+                }
+                \volta 12 {
+                  hho8 hho16 sn hho8 <hho sn>8 hho <hho sn>
+                }
+              }
+            }
+          }
+          \bar "|."
+        }
+        \new DrumVoice = "feet" {
+          \voiceTwo
+          \drummode {
+            bd4 s16 bd4 s16 bd8 bd[ s bd] hpp bd |
+            bd4 s16 bd8 hpp s16 bd8 bd[ s bd] hpp bd
+          }
+          \repeat volta 10 {
+            \drummode {
+              \alternative {
+                \volta 9 { cymc8 }
+                \volta 1,2,3,4,5,6,7,8,10 { hh8 }
+              }
+              hh16 sn hh8 <hh sn> hh16 sn hh8 
+              \alternative {
+                \volta 1,3,5,7,9 {
+                  hh8 hh16 sn hh8 <hh sn> hh16 sn hh8
+                }
+                \volta 2,4,6,8 {
+                  hh8 hh16 sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
+                }
+                \volta 12 {
+                  hho8 hho16 sn hho8 <hho sn>8 hho <hho sn>
+                }
+              }
+            }
+          }
+        }
+      >>
+    }
+  >>
+}
