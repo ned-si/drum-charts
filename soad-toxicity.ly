@@ -76,11 +76,11 @@
           \repeat volta 4 {
             \drummode {
               \alternative {
-                \volta 1,2,4 { bd8 s16 bd8 bd16 s8 bd4 }
+                \volta 1,2,4 { bd8[ s16 bd8 bd16] s8 bd4 }
                   \alternative {
-                    \volta 1 { bd s s }
-                    \volta 2 { bd s s }
-                    \volta 4 { bd s s }
+                    \volta 1 { bd s2 }
+                    \volta 2 { bd4 s2 }
+                    \volta 4 { bd4 s2 }
                     }
                 \volta 3 { \repeat unfold 4 { bd4 s8 } }
               }
@@ -88,10 +88,10 @@
           }
           \repeat volta 4 {
             \drummode {
-              bd4 s16 bd4 s16 bd8
+              bd8 [ s s16 bd8] s8. bd8
               \alternative {
                 \volta 1,2,3 { bd[ s bd] s8 bd4 }
-                \volta 4 { bd4 s16 bd4 s16 }
+                \volta 4 { bd8 [ s s16 bd8] s4 }
               }
             }
           }
@@ -102,7 +102,6 @@
 }
 
 \score {
-%  \layout{ ragged-right = ##f }
   <<
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Verse1"
@@ -112,25 +111,31 @@
           \voiceOne
           \bar ".|:-|"
           \drummode {
-            cymc8 hh16 sn hh8 <hh sn> hh16 sn hh8 hh8 hh16 sn hh8 <hho sn> hh16 sn hh8 |
-            hh8 hh16 sn hh8 <hho sn> hh16 sn hh8 hh8 hh16 \parenthesize sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
           }
-          \repeat volta 10 {
+          \repeat volta 12 {
             \drummode {
               \alternative {
-                \volta 9 { cymc8 }
-                \volta 1,2,3,4,5,6,7,8,10 { hh8 }
-              }
-              hh16 sn hh8 <hh sn> hh16 sn hh8 
-              \alternative {
-                \volta 1,3,5,7,9 {
-                  hh8 hh16 sn hh8 <hh sn> hh16 sn hh8
+                \volta 1 {
+                  cymc8 hh16 \parenthesize sn hh8 <hh sn> hh16 sn hh8 hh8 hh16 \parenthesize sn hh8 <hho sn> hh16 sn hh8
                 }
-                \volta 2,4,6,8 {
+                \volta 2 {
+                  hh8 hh16 \parenthesize sn hh8 <hho sn> hh16 sn hh8 hh8 hh16 \parenthesize sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16  sn
+                }
+                \volta 3,5,7,9,11 {
+                  \alternative {
+                    \volta 9 { cymc8[ }
+                    \volta 3,5,7,11 { hh16[ \parenthesize sn }
+                  }
+                  hh16 \parenthesize sn hh8] <hh sn> hh16 sn hh8 |
+                  hh8 hh16 \parenthesize sn hh8 <hh sn> hh16 sn hh8
+                }
+                \volta 4,6,8,10 {
+                  hh8 hh16 sn hh8 <hh sn> hh16 \parenthesize sn hh8 |
                   hh8 hh16 sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
                 }
                 \volta 12 {
-                  hho8 hho16 sn hho8 <hho sn>8 hho <hho sn>
+                  hh8 hh16 \parenthesize sn hh8 <hh sn>\< hh16 sn hh8 |
+                  hho8 hho16 \parenthesize sn hho8 <hho sn>8 hho <hho sn>\!
                 }
               }
             }
@@ -140,25 +145,31 @@
         \new DrumVoice = "feet" {
           \voiceTwo
           \drummode {
-            bd4 s16 bd4 s16 bd8 bd[ s bd] hpp bd |
-            bd4 s16 bd8 hpp s16 bd8 bd[ s bd] hpp bd
           }
-          \repeat volta 10 {
+          \repeat volta 12 {
             \drummode {
               \alternative {
-                \volta 9 { cymc8 }
-                \volta 1,2,3,4,5,6,7,8,10 { hh8 }
-              }
-              hh16 sn hh8 <hh sn> hh16 sn hh8 
-              \alternative {
-                \volta 1,3,5,7,9 {
-                  hh8 hh16 sn hh8 <hh sn> hh16 sn hh8
+                \volta 1 {
+                  <bd hhp>8[ s s16 bd8] s8. bd8 bd[ s s16 bd8] s16 hhp8 bd
                 }
-                \volta 2,4,6,8 {
-                  hh8 hh16 sn hh8 <hho sn> hh16 \repeat unfold 2 { \parenthesize sn32 } hh16 sn
+                \volta 2 {
+                  bd[ s s16 bd8] s16 hhp8 bd bd[ s s16 bd8] s16 hhp8 bd
+                }
+                \volta 3,5,7,9,11 {
+                  \alternative {
+                    \volta 9 { bd8[ }
+                    \volta 3,5,7,11 { bd8[ }
+                  }
+                  s s16 bd8] s8. bd8 |
+                  bd8 [ s s16 bd8] s8. bd8
+                }
+                \volta 4,6,8,10 {
+                  bd8 [ s s16 bd8] s8. bd8 |
+                  bd8[ s s16 bd8] s16 s8 bd
                 }
                 \volta 12 {
-                  hho8 hho16 sn hho8 <hho sn>8 hho <hho sn>
+                  bd8 [ s s16 bd8] s8. bd8 |
+                  bd8[ s s16 bd8] s16 bd8 s
                 }
               }
             }
@@ -167,4 +178,258 @@
       >>
     }
   >>
+}
+
+
+\score {
+  <<
+    \new DrumStaff {
+      \set DrumStaff.instrumentName = #"Chorus1" %TODO: fix this one
+      <<
+        \new DrumVoice = "hands" {
+          \time 12/8
+          \voiceOne
+          \bar ".|:-|"
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { cymc8 \flam sn16 s8 s16 \flam sn8[ s \flam sn]
+                  \alternative {
+                    \volta 1 { sn16[ tomh tomh sn toml toml] sn32[ sn sn sn sn16 tomh tomh toml] }
+                    \volta 2 { tomh16[ sn sn toml toml toml] sn[ sn toml tomfh tomfh tomfh] }
+                    \volta 4 { sn16[ tomh sn sn tomh tomh] sn[ sn toml tomfh tomfh tomfh]}
+                    }
+                  }
+                \volta 3 { cymc16 tomh tomh tomh toml toml sn sn toml toml tomfh tomfh
+                           cymc toml \repeat unfold 4 { tomh } sn sn toml toml tomfh tomfh
+                }
+              }
+            }
+          }
+          \bar ":|."
+          \repeat volta 4 {
+            \drummode {
+              cymc8 hho16 sn hho8 <hho sn> hho16 sn hho8
+              \alternative {
+                \volta 1,2,3 { cymc8 hho16 sn hho8 <hho sn>[ hho8 <hho sn>] }
+                \volta 4 { cymc8[ sn16 sn hho] s <hho sn>8[ sn16 toml toml toml] }
+              }
+            }
+          }
+          \bar "|."
+        }
+        \new DrumVoice = "feet" {
+          \voiceTwo
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { bd8[ s16 bd8 bd16] s8 bd4 }
+                  \alternative {
+                    \volta 1 { bd s2 }
+                    \volta 2 { bd4 s2 }
+                    \volta 4 { bd4 s2 }
+                    }
+                \volta 3 { \repeat unfold 4 { bd4 s8 } }
+              }
+            }
+          }
+          \repeat volta 4 {
+            \drummode {
+              bd8 [ s s16 bd8] s8. bd8
+              \alternative {
+                \volta 1,2,3 { bd[ s bd] s8 bd4 }
+                \volta 4 { bd8 [ s s16 bd8] s4 }
+              }
+            }
+          }
+        }
+      >>
+    }
+  >>
+}
+
+\score {
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Verse2"
+    \new DrumVoice = "hands" {
+      \time 12/8
+      \voiceOne
+      \drummode {
+        <>_"Same as verse 1"
+        \compressEmptyMeasures
+        \override MultiMeasureRest.expand-limit = 1
+        R1*18
+      }
+    }
+  }
+}
+
+\paper {
+  page-breaking = #ly:page-turn-breaking
+}
+
+\score {
+  <<
+    \new DrumStaff {
+      \set DrumStaff.instrumentName = #"Chorus2" %TODO: fix this one
+      <<
+        \new DrumVoice = "hands" {
+          \time 12/8
+          \voiceOne
+          \bar ".|:-|"
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { cymc8 \flam sn16 s8 s16 \flam sn8[ s \flam sn]
+                  \alternative {
+                    \volta 1 { sn16[ tomh tomh sn toml toml] sn32[ sn sn sn sn16 tomh tomh toml] }
+                    \volta 2 { tomh16[ sn sn toml toml toml] sn[ sn toml tomfh tomfh tomfh] }
+                    \volta 4 { sn16[ tomh sn sn tomh tomh] sn[ sn toml tomfh tomfh tomfh]}
+                    }
+                  }
+                \volta 3 { cymc16 tomh tomh tomh toml toml sn sn toml toml tomfh tomfh
+                           cymc toml \repeat unfold 4 { tomh } sn sn toml toml tomfh tomfh
+                }
+              }
+            }
+          }
+          \bar ":|."
+          \repeat volta 4 {
+            \drummode {
+              cymc8 hho16 sn hho8 <hho sn> hho16 sn hho8
+              \alternative {
+                \volta 1,2,3 { cymc8 hho16 sn hho8 <hho sn>[ hho8 <hho sn>] }
+                \volta 4 { cymc8[ sn16 sn hho] s <hho sn>8[ sn16 toml toml toml] }
+              }
+            }
+          }
+          \bar "|."
+        }
+        \new DrumVoice = "feet" {
+          \voiceTwo
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { bd8[ s16 bd8 bd16] s8 bd4 }
+                  \alternative {
+                    \volta 1 { bd s2 }
+                    \volta 2 { bd4 s2 }
+                    \volta 4 { bd4 s2 }
+                    }
+                \volta 3 { \repeat unfold 4 { bd4 s8 } }
+              }
+            }
+          }
+          \repeat volta 4 {
+            \drummode {
+              bd8 [ s s16 bd8] s8. bd8
+              \alternative {
+                \volta 1,2,3 { bd[ s bd] s8 bd4 }
+                \volta 4 { bd8 [ s s16 bd8] s4 }
+              }
+            }
+          }
+        }
+      >>
+    }
+  >>
+}
+
+\score {
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Bridge" %TODO: actually do it :)
+    \new DrumVoice = "hands" {
+      \time 12/8
+      \voiceOne
+      \drummode {
+        <>_"Same as verse 1"
+        \compressEmptyMeasures
+        \override MultiMeasureRest.expand-limit = 1
+        R1*18
+      }
+    }
+  }
+}
+
+\score {
+  <<
+    \new DrumStaff {
+      \set DrumStaff.instrumentName = #"Chorus3" %TODO: fix this one
+      <<
+        \new DrumVoice = "hands" {
+          \time 12/8
+          \voiceOne
+          \bar ".|:-|"
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { cymc8 \flam sn16 s8 s16 \flam sn8[ s \flam sn]
+                  \alternative {
+                    \volta 1 { sn16[ tomh tomh sn toml toml] sn32[ sn sn sn sn16 tomh tomh toml] }
+                    \volta 2 { tomh16[ sn sn toml toml toml] sn[ sn toml tomfh tomfh tomfh] }
+                    \volta 4 { sn16[ tomh sn sn tomh tomh] sn[ sn toml tomfh tomfh tomfh]}
+                    }
+                  }
+                \volta 3 { cymc16 tomh tomh tomh toml toml sn sn toml toml tomfh tomfh
+                           cymc toml \repeat unfold 4 { tomh } sn sn toml toml tomfh tomfh
+                }
+              }
+            }
+          }
+          \bar ":|."
+          \repeat volta 4 {
+            \drummode {
+              cymc8 hho16 sn hho8 <hho sn> hho16 sn hho8
+              \alternative {
+                \volta 1,2,3 { cymc8 hho16 sn hho8 <hho sn>[ hho8 <hho sn>] }
+                \volta 4 { cymc8[ sn16 sn hho] s <hho sn>8[ sn16 toml toml toml] }
+              }
+            }
+          }
+          \bar "|."
+        }
+        \new DrumVoice = "feet" {
+          \voiceTwo
+          \repeat volta 4 {
+            \drummode {
+              \alternative {
+                \volta 1,2,4 { bd8[ s16 bd8 bd16] s8 bd4 }
+                  \alternative {
+                    \volta 1 { bd s2 }
+                    \volta 2 { bd4 s2 }
+                    \volta 4 { bd4 s2 }
+                    }
+                \volta 3 { \repeat unfold 4 { bd4 s8 } }
+              }
+            }
+          }
+          \repeat volta 4 {
+            \drummode {
+              bd8 [ s s16 bd8] s8. bd8
+              \alternative {
+                \volta 1,2,3 { bd[ s bd] s8 bd4 }
+                \volta 4 { bd8 [ s s16 bd8] s4 }
+              }
+            }
+          }
+        }
+      >>
+    }
+  >>
+}
+
+\score {
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Outro" %TODO: actually do it :)
+    \new DrumVoice = "hands" {
+      \time 12/8
+      \voiceOne
+      \drummode {
+        <>_"Same as verse 1"
+        \compressEmptyMeasures
+        \override MultiMeasureRest.expand-limit = 1
+        R1*18
+      }
+    }
+  }
 }
