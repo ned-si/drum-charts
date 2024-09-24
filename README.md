@@ -28,20 +28,20 @@ unique visual clarity. This allows for an easily readable format that highlights
 critical rhythmic patterns and beats.
 - **Legend:** A `legend.pdf` is available to explain all custom symbols and
 notation used in the charts.
-- **Alternatives**: Sometimes alternatives are used for beginnings, and
-sometimes for endings, but usually not for both at the same time. While it would
-be cleaner to include both in a single score, having only one per chart improves
-readability and understanding.
+- **Alternatives**: Sometimes alternatives are used for beginnings, sometimes
+for endings, and sometimes they are nested.
 
 ## Available Drum Charts
 
-### Finished:
-- Linkin Park - One Step Closer
+### Finished
 
-### In Progress:
+- Linkin Park - One Step Closer
 - SOAD - Toxicity
 
-### Next:
+### In Progress
+
+### Next
+
 - Korn - Did My Time
 
 ## Examples of Alternatives
