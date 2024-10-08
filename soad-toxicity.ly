@@ -264,9 +264,7 @@
   }
 }
 
-\paper {
-  page-breaking = #ly:page-turn-breaking
-}
+\pageBreak
 
 \score {
   <<
