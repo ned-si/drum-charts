@@ -79,13 +79,14 @@
       \set DrumStaff.instrumentName = #"Intro"
       <<
         \new DrumVoice = "hands" {
+          <>^\markup \bold "4×"
           \numericTimeSignature
           \voiceOne
           \bar ".|:-|"
           \repeat volta 4 {
             \drummode {
-              <cymc cymch>8 cymc16 s <cymc sn>8 cymr cymc[ cymc] <cymc sn> cymc
-              <cymc cymch>8 cymc16 s <cymc sn>16 sn cymr8
+              <cymc cymch>8[ cymc] <cymc sn> cymc cymc[ cymc] <cymc sn> cymc
+              <cymc cymch>8[ cymc] <cymc sn>16 sn cymc8
               \alternative {
                 \volta 1,2 {
                   cymc8 <cymc sn> <cymc sn> r
@@ -94,8 +95,7 @@
                   cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
                 }
                 \volta 4 {
-                  cymc16[ tomh32 tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
-                  % add sticking here (check how)
+                  r16 tomh32[ tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
                 }
               }
             }
@@ -106,8 +106,19 @@
           \voiceTwo
           \repeat volta 4 {
             \drummode {
-              bd8[ s16 bd] s8 bd s16 bd s8 s16 bd s8
-              bd8[ s16 bd] s8 bd s16 bd s4.
+              bd8.[ bd] bd8.[ bd8] s bd8.
+              bd8.[ bd8.] bd8
+              \alternative {
+                \volta 1,3 {
+                  s16 bd4 s8.
+                }
+                \volta 2 {
+                  s16 bd4 s8.
+                }
+                \volta 4 {
+                  s2
+                }
+              }
             }
           }
         }
@@ -132,10 +143,10 @@
                   cymc8
                 }
                 \volta 2,3,4,6,7,8 {
-                  hh8
+                  hh8[
                 }
               }
-              hh16 s <hh sn>8 hh
+              hh8] <hh sn> hh
               \alternative {
                 \volta 1,2,3,5,6,7 {
                   hh[ hh8] <hh sn> hh
@@ -189,163 +200,12 @@
   >>
 }
 
-\score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Chorus1"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 4 {
-            \drummode {
-              <cymc cymch>8 cymc16 s <cymc sn>8 cymr cymc[ cymc] <cymc sn> cymc
-              <cymc cymch>8 cymc16 s <cymc sn>16 sn cymr8
-              \alternative {
-                \volta 1,2 {
-                  cymc8 <cymc sn> <cymc sn> r
-                }
-                \volta 3 {
-                  cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
-                }
-                \volta 4 {
-                  cymc16[ tomh32 tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
-                  % add sticking here (check how)
-                }
-              }
-            }
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 4 {
-            \drummode {
-              bd8[ s16 bd] s8 bd s16 bd s8 s16 bd s8
-              bd8[ s16 bd] s8 bd s16 bd s4.
-            }
-          }
-        }
-      >>
-    }
-  >>
-}
-
-\score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Verse2"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 8 {
-            \drummode {
-              \alternative {
-                \volta 1,5 {
-                  cymc8
-                }
-                \volta 2,3,4,6,7,8 {
-                  hh8
-                }
-              }
-              hh16 s <hh sn>8 hh
-              \alternative {
-                \volta 1,2,3,5,6,7 {
-                  hh[ hh8] <hh sn> hh
-                }
-                \volta 4 {
-                  \repeat unfold 2 { sn16 hho s8 }
-                }
-                \volta 8 {
-                  hh[ hh8] <hh sn> \tuplet 3/2 { toml16 tomfh toml }
-                }
-              }
-            }
-          }
-          \drummode {
-            tomfl4 s2 s8 sn
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 8 {
-            \drummode {
-              \alternative {
-                \volta 1,5 {
-                  bd8
-                }
-                \volta 2,3,4,6,7,8 {
-                  bd8
-                }
-              }
-              [ s16 bd] s4
-              \alternative {
-                \volta 1,2,3,5,6,7 {
-                  bd8[ s16 bd] s4
-                }
-                \volta 4 {
-                  \repeat unfold 2 { s16 bd hhp8 }
-                }
-                \volta 8 {
-                  bd8[ s16 bd] s4
-                }
-              }
-            }
-          }
-          \drummode {
-            hhp4 hhp hhp hhp16 bd s8
-          }
-        }
-      >>
-    }
-  >>
-}
-
-\score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Chorus2"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 4 {
-            \drummode {
-              <cymc cymch>8 cymc16 s <cymc sn>8 cymr cymc[ cymc] <cymc sn> cymc
-              <cymc cymch>8 cymc16 s <cymc sn>16 sn cymr8
-              \alternative {
-                \volta 1,2 {
-                  cymc8 <cymc sn> <cymc sn> r
-                }
-                \volta 3 {
-                  cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
-                }
-                \volta 4 {
-                  cymc16[ tomh32 tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
-                  % add sticking here (check how)
-                }
-              }
-            }
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 4 {
-            \drummode {
-              bd8[ s16 bd] s8 bd s16 bd s8 s16 bd s8
-              bd8[ s16 bd] s8 bd s16 bd s4.
-            }
-          }
-        }
-      >>
-    }
-  >>
+\markuplist {
+  \column \bold
+    \string-lines
+    "Chorus1 = Intro
+    Verse2    = Verse1
+    Chorus2 = Intro"
 }
 
 \score {
@@ -526,7 +386,7 @@
             \drummode {
               \alternative {
                 \volta 1,3 {
-                  cymc8[
+                  cymc8
                 }
                 \volta 2,4 {
                   hho8[
@@ -554,7 +414,7 @@
             \drummode {
               \alternative {
                 \volta 1,3 {
-                  bd8[
+                  bd8
                 }
                 \volta 2,4 {
                   bd8[
@@ -580,8 +440,8 @@
   >>
 }
 
-%TODO: continue here
 \score {
+  \layout{ ragged-right = ##f }
   <<
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Chorus3"
@@ -589,21 +449,21 @@
         \new DrumVoice = "hands" {
           \numericTimeSignature
           \voiceOne
+          <>^\markup \bold "4×"
           \bar ".|:-|"
           \repeat volta 4 {
             \drummode {
-              <cymc cymch>8 cymc16 s <cymc sn>8 cymr cymc[ cymc] <cymc sn> cymc
-              <cymc cymch>8 cymc16 s <cymc sn>16 sn cymr8
+              <cymc cymch>8[ cymc] <cymc sn>[ cymc] cymc[ cymc] <cymc sn> cymc
+              <cymc cymch>8[ cymc] <cymc sn>16[ sn cymc8] 
               \alternative {
-                \volta 1,2 {
-                  cymc8 <cymc sn> <cymc sn> r
+                \volta 1,3 {
+                  cymc <cymc sn> <cymc sn> r
                 }
-                \volta 3 {
-                  cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
+                \volta 2 {
+                  cymc <cymc sn> <cymc sn> hho
                 }
                 \volta 4 {
-                  cymc16[ tomh32 tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
-                  % add sticking here (check how)
+                  r <cymc sn> <cymc sn> r
                 }
               }
             }
@@ -614,8 +474,19 @@
           \voiceTwo
           \repeat volta 4 {
             \drummode {
-              bd8[ s16 bd] s8 bd s16 bd s8 s16 bd s8
-              bd8[ s16 bd] s8 bd s16 bd s4.
+              bd8.[ bd] bd8.[ bd8] s bd8.
+              bd8.[ bd8.] bd8
+              \alternative {
+                \volta 1,3 {
+                  s16 bd4 s8.
+                }
+                \volta 2 {
+                  s16 bd8 bd bd s16
+                }
+                \volta 4 {
+                  s8. bd8 bd s16
+                }
+              }
             }
           }
         }
@@ -625,6 +496,7 @@
 }
 
 \score {
+  \layout{ ragged-right = ##f }
   <<
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Outro"
@@ -633,20 +505,23 @@
           \numericTimeSignature
           \voiceOne
           \bar ".|:-|"
-          \repeat volta 4 {
+          \repeat volta 8 {
             \drummode {
-              <cymc cymch>8 cymc16 s <cymc sn>8 cymr cymc[ cymc] <cymc sn> cymc
-              <cymc cymch>8 cymc16 s <cymc sn>16 sn cymr8
               \alternative {
-                \volta 1,2 {
-                  cymc8 <cymc sn> <cymc sn> r
+                \volta 1 {
+                  <cymc tomfh>8
                 }
-                \volta 3 {
-                  cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
+                \volta 2,3,4,5,6,7,8 {
+                  tomfh8[
                 }
-                \volta 4 {
-                  cymc16[ tomh32 tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
-                  % add sticking here (check how)
+              }
+              <sn tomfh>]
+              \alternative {
+                \volta 1,2,3,4,5,6,7 {
+                  tomh32 tomh toml toml tomfh8
+                }
+                \volta 8 {
+                  <tomh tomfh>8 <toml tomfh>
                 }
               }
             }
@@ -657,8 +532,23 @@
           \voiceTwo
           \repeat volta 4 {
             \drummode {
-              bd8[ s16 bd] s8 bd s16 bd s8 s16 bd s8
-              bd8[ s16 bd] s8 bd s16 bd s4.
+              \alternative {
+                \volta 1 {
+                  s8
+                }
+                \volta 2,3,4,5,6,7,8 {
+                  s8
+                }
+              }
+              s8
+              \alternative {
+                \volta 1,2,3,4,5,6,7 {
+                  s4
+                }
+                \volta 8 {
+                  s8 bd
+                }
+              }
             }
           }
         }
