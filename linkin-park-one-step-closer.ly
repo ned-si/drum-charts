@@ -192,7 +192,6 @@
             cymc8[ hho] <hho sn>[ hho] hho[ hho] <hho sn>[ hho]
           }
           \bar ":|."
-
           \drummode {
             cymc8[ hho] <hho sn>[ hho] hho[ hho] <hho sn>16 tomh32 tomh sn16 sn
           }
