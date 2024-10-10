@@ -62,7 +62,7 @@
               s1
               hhp4 s2.
             }
-            bd8 bd16 bd s8 bd16 bd bd8 bd16 bd s8 bd16 s
+            bd8 bd16 bd s8 bd16 bd bd8 bd16 bd s8 bd8
             hhp4 hhp hhp hhp16 bd s8
             bd8 bd16 bd s4 bd8 bd s4
             hhp4 hhp hhp hhp16 bd s8
@@ -95,7 +95,7 @@
                   cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
                 }
                 \volta 4 {
-                  r16 tomh32[ tomh toml8] toml8[\tuplet 3/2 { \repeat unfold 3 { tomfh16 }}]
+                  r16 tomh32[ tomh toml8] toml8 \tuplet 3/2 { \repeat unfold 3 { tomfh16 }}
                 }
               }
             }
@@ -128,6 +128,7 @@
 }
 
 \score {
+  \layout{ ragged-right = ##f }
   <<
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Verse1"
@@ -174,19 +175,19 @@
                   bd8
                 }
                 \volta 2,3,4,6,7,8 {
-                  bd8
+                  bd8.
                 }
               }
-              [ s16 bd] s4
+              [ bd8] s8.
               \alternative {
                 \volta 1,2,3,5,6,7 {
-                  bd8[ s16 bd] s4
+                  bd8.[ bd8] s8.
                 }
                 \volta 4 {
                   \repeat unfold 2 { s16 bd hhp8 }
                 }
                 \volta 8 {
-                  bd8[ s16 bd] s4
+                  bd8.[ bd8] s8.
                 }
               }
             }
@@ -201,11 +202,15 @@
 }
 
 \markuplist {
-  \column \bold
-    \string-lines
-    "Chorus1 = Intro
-    Verse2    = Verse1
-    Chorus2 = Intro"
+  \column
+  \bold {
+    { "Chorus1 = Intro" }
+    \hspace #0
+    { "Verse2    = Verse1" }
+    \hspace #0
+    { "Chorus2 = Intro" }
+    \hspace #0
+  }
 }
 
 \score {
@@ -296,9 +301,9 @@
           \drummode {
             s1
             \repeat unfold 2 {
-              \repeat unfold 3 { bd8. bd16 s8. bd4 bd8 bd8. }
-              bd8. bd16 s2.
-            }
+              \repeat unfold 3 { bd8.[ bd8] s bd4 bd8 bd8. }
+              bd8. bd8 s2 s8.
+           }
           }
           \repeat volta 4 {
             \drummode {
@@ -318,6 +323,7 @@
     }
   >>
 }
+\pageBreak
 
 \score {
   \layout{ ragged-right = ##f }
@@ -417,16 +423,16 @@
                   bd8
                 }
                 \volta 2,4 {
-                  bd8[
+                  bd8.[
                 }
               }
-              s16 bd] s4
+              bd8] s8.
               \alternative {
                 \volta 1,3 {
-                  bd8[ s16 bd] s4
+                  bd8.[ bd8] s8.
                 }
                 \volta 2 {
-                  bd8[ s16 bd] s4
+                  bd8.[ bd8] s8.
                 }
                 \volta 4 {
                   s2

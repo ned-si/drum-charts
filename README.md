@@ -37,12 +37,11 @@ for endings, and sometimes they are nested.
 
 - Linkin Park - One Step Closer
 - SOAD - Toxicity
+- Korn - Did My Time
 
 ### In Progress
 
 ### Next
-
-- Korn - Did My Time
 
 ## Examples of Alternatives
 
