@@ -58,8 +58,8 @@ act = \markup { \left-align \musicglyph "scripts.sforzato" }
 
 %% function to add right or left (open or filled circle) below notes
 %% usage sn_\left
-left = \markup {\center-column {\draw-circle #0.5 #0.1 ##t }}
-right= \markup {\center-column {\draw-circle #0.5 #0.1 ##f }}
+left = \markup {\center-column {\draw-circle #0.5 #0.1 ##f }}
+right= \markup {\center-column {\draw-circle #0.5 #0.1 ##t }}
 
 %% function to add a ghost note
 %% usage \ghost sn
