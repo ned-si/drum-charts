@@ -47,11 +47,11 @@
               hho4 hho hho hho
               s1
             }
-            <cymc cymch>4 <hho sn> hho <hho sn>8[ s16 tomfl32 tomfl]
+            <cymc cymch>4 <hho sn> hho <hho sn>8[ s16 tomfh32 tomfh]
             \break
-            tomfl4 s2 s8 sn
-            <cymc cymch>8[ hho] <hho sn> <hho sn> hho16 sn hho8 <hho sn>8 <hho sn>16 tomfl32 tomfl
-            tomfl4 s2 s8 sn
+            tomfh4 s2 s8 sn
+            <cymc cymch>8[ hho] <hho sn> <hho sn> hho16 sn hho8 <hho sn>8 <hho sn>16 tomfh32 tomfh
+            tomfh4 s2 s8 sn
           }
           \bar "|."
         }
@@ -95,7 +95,7 @@
                   cymc8 <cymc sn> <cymc sn>8 tomh16 toml32 toml
                 }
                 \volta 4 {
-                  r16 tomh32[ tomh toml8] toml8 \tuplet 3/2 { \repeat unfold 3 { tomfh16 }}
+                  r16 tomh32_\right[ tomh_\left toml8_\right] toml8_\left \tuplet 3/2 { tomfh16_\right tomfh16_\left tomfh16_\left }
                 }
               }
             }
@@ -150,19 +150,19 @@
               hh8] <hh sn> hh
               \alternative {
                 \volta 1,2,3,5,6,7 {
-                  hh[ hh8] <hh sn> hh
+                  hh[ hh8] <hh sn> hho
                 }
                 \volta 4 {
                   \repeat unfold 2 { sn16 hho s8 }
                 }
                 \volta 8 {
-                  hh[ hh8] <hh sn> \tuplet 3/2 { toml16 tomfh toml }
+                  hh[ hh8] <hh sn> \tuplet 3/2 { tomh16_\right tomh_\left toml_\right }
                 }
               }
             }
           }
           \drummode {
-            tomfl4 s2 s8 sn
+            tomfh4_\right s2 s8 sn
           }
           \bar "|."
         }
@@ -249,11 +249,11 @@
           \drummode {
             cymr4 cymr8 cymr16 sn cymr toml cymr sn sn sn toml tomfh
             cymc8[ cymr] <cymr sn> cymr cymr cymr <cymr sn>16 hh cymr hh
-            cymr8[ cymr] <cymr sn> cymr cymr16 hh cymr8 <cymr sn> cymr
+            cymr8[ cymr] <cymr sn> cymr cymr16 hh cymr8 <cymr sn> cymc
             cymr16 hh cymr s <cymr sn>8 cymr cymr16 hh cymr s16 <cymr sn>8 cymr16 hh
             cymr8 cymr <cymr sn> cymr16 sn cymr toml cymr sn sn sn toml tomfh
-            cymr8[ cymr] <cymr sn>16 hh cymr s cymr8 cymr <cymr sn>16 hh cymr hh
-            cymr16 hh cymr s <cymr sn>8 cymr cymr16 hh cymr s <cymr sn> hh cymr hh
+            cymc8[ cymr] <cymr sn>16 hh cymr s cymr8 cymr <cymr sn>16 hh cymr hh
+            cymr16 hh cymr s <cymr sn>8 cymr cymr16 hh cymr s <cymr sn> hh cymc hh
             cymr8[ cymr] <cymr sn>16 hh cymr s cymr hh cymr hh <cymr sn> hh cymr hh
             cymr8 cymr <cymr sn> cymr16 sn cymr toml cymr sn \tuplet 3/2 { tomh tomh toml } \tuplet 3/2 { toml tomfh tomfh }
           }
