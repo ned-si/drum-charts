@@ -41,8 +41,21 @@ jobs:
       - name: Compile LilyPond files
         if: ${{ steps.changed_ly.outputs.count != '0' }}
         run: |
-          docker run --rm -v ${{ github.workspace }}:/app -w /app jeandeaual/lilypond \
-          lilypond -o pdf/ ${{ steps.changed_ly.outputs.files }}
+          # 1. Get the list of changed files
+          FILES="${{ steps.changed_ly.outputs.files }}"
+          
+          # 2. Prepend '/app/' to each file to make the path absolute inside Docker
+          #    (e.g., 'ly/song.ly' becomes '/app/ly/song.ly')
+          ABS_FILES=""
+          for f in $FILES; do
+            ABS_FILES="$ABS_FILES /app/$f"
+          done
+
+          echo "Compiling: $ABS_FILES"
+
+          # 3. Run Docker with the absolute paths
+          docker run --rm -v ${{ github.workspace }}:/app -w /app jeandeaual/lilypond:2.24.4 \
+          lilypond -o pdf/ $ABS_FILES
 
       - name: Commit and push PDFs
         uses: stefanzweifel/git-auto-commit-action@v5
