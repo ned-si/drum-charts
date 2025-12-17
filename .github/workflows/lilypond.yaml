@@ -54,7 +54,7 @@ jobs:
           echo "Compiling: $ABS_FILES"
 
           # 3. Run Docker with the absolute paths
-          docker run --rm -v ${{ github.workspace }}:/app -w /app jeandeaual/lilypond \
+          docker run --rm -v ${{ github.workspace }}:/app -w /app codello/lilypond:2.24.4 \
           lilypond -o pdf/ $ABS_FILES
 
       - name: Commit and push PDFs
