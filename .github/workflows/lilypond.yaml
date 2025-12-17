@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important: Required to detect changes between commits properly
 
       - name: Ensure output directory
         run: mkdir -p pdf
@@ -22,22 +24,29 @@ jobs:
       - name: Detect changed LilyPond files
         id: changed_ly
         run: |
-          CHANGED="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'ly/*.ly' | xargs)"
-          COUNT=$(printf "%s" "$CHANGED" | wc -w | tr -d ' ')
+          # Diff against the previous commit to find changed .ly files
+          CHANGED="$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'ly/*.ly' | xargs)"
+          
+          # Count them
+          if [ -z "$CHANGED" ]; then
+            COUNT=0
+          else
+            COUNT=$(echo "$CHANGED" | wc -w | tr -d ' ')
+          fi
+          
+          echo "Files detected: $CHANGED"
           echo "files=$CHANGED" >> "$GITHUB_OUTPUT"
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
 
       - name: Compile LilyPond files
-        uses: jeandeaual/lilypond-action@v2
         if: ${{ steps.changed_ly.outputs.count != '0' }}
-        with:
-          lilypond-version: stable
-          # Compile only changed .ly files to /pdf
-          args: -o pdf/ ${{ steps.changed_ly.outputs.files }}
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/app -w /app jeandeaual/lilypond \
+          lilypond -o pdf/ ${{ steps.changed_ly.outputs.files }}
 
       - name: Commit and push PDFs
         uses: stefanzweifel/git-auto-commit-action@v5
         if: ${{ steps.changed_ly.outputs.count != '0' }}
         with:
-          commit_message: "Auto-generate PDFs from .ly changes"
+          commit_message: "chore(pdf): auto-generate PDFs from .ly changes"
           file_pattern: 'pdf/*.pdf'
