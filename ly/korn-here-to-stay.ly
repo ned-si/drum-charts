@@ -1,4 +1,4 @@
-\version "2.25.31"
+\version "2.24.4"
 \include "definitions.ly"
 
 \layout{
@@ -158,7 +158,7 @@
                   cymc[ cymc <cymc sn> cymc]
                 }
                 \volta 2 {
-                  <cymc sn>[ sn32 sn sn16] sn[ sn tomh hho]
+                  <cymc sn>[ sn32_\right sn_\right sn16_\left] sn_\right[ sn_\left tomh_\right hho_\left]
                 }
               }
             }
@@ -265,8 +265,8 @@
             \drummode {
               \alternative {
                 \volta 1,2,3 {
-                  cymc8 hh16 hh hh8 hh32 hh hh hh hh8 hh16 hh hh hh hh32 hh hh
-                  hh
+                  cymc8_\right hh16_\right hh_\left hh8_\right hh32_\right hh_\right hh_\left hh_\left hh8_\right hh16_\right hh_\left hh_\right hh_\left hh32_\right hh_\right hh_\left 
+                  hh_\left
                   hh8 hh16 hh hh8 hh32 hh hh hh hh16 hh hh32 hh hh hh hh16 cymch
                   hh8
                 }
@@ -473,7 +473,7 @@
           \bar ".|:-|"
           \repeat volta 8 {
             \drummode {
-              <toml tomfh>8 <toml tomfh> \flam sn8 tomfh16 tomfh16 tomfh tomfh8. s4
+              <toml tomfh>8 <toml tomfh> \flam sn8 tomfh16[ tomfh16 tomfh tomfh8.] s4
               <toml tomfh>8 <toml tomfh> \flam sn4 <toml tomfh>16 <toml tomfh> <toml tomfh>8
                \alternative {
                 \volta 1,2,3 {
