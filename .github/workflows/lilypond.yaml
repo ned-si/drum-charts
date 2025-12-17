@@ -55,7 +55,7 @@ jobs:
 
           # 3. Run Docker with the absolute paths
           docker run --rm -v ${{ github.workspace }}:/app -w /app codello/lilypond:2.24.4 \
-          lilypond -o pdf/ $ABS_FILES
+          -o pdf/ $ABS_FILES
 
       - name: Commit and push PDFs
         uses: stefanzweifel/git-auto-commit-action@v5
