@@ -28,10 +28,11 @@ notation used in the charts.
 - Linkin Park - One Step Closer
 - SOAD - Toxicity
 - Korn - Did My Time
+- Korn – Here to Stay
+- Underschool Element – Petit Tom
 
 ### In Progress
 
-- Korn – Here to Stay
 
 ### Next
 
@@ -42,4 +43,3 @@ notation used in the charts.
 - Blink 182 – What’s My Age Again
 - Fountains of Wayne – Stacy’s Mom
 - Bloodhound Gang – F.U.C.K.
-- Underschool Element – Petit Tom
