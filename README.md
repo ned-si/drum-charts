@@ -30,6 +30,7 @@ notation used in the charts.
 - Korn - Did My Time
 - Korn – Here to Stay
 - Underschool Element – Petit Tom
+- Muse – Time is Running Out
 
 ### In Progress
 
@@ -37,7 +38,6 @@ notation used in the charts.
 ### Next
 
 - Papa Roach – Last Resort
-- Muse – Time is Running Out
 - Rage Against the Machine – Killing in the Name
 - Sum 41 - Fat Lip
 - Blink 182 – What’s My Age Again
