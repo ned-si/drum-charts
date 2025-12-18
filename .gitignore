@@ -3,3 +3,4 @@
 *.mid
 *.log
 *~
+.DS_Store
