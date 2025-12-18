@@ -397,7 +397,10 @@
                 \volta 1,2,3,5,6,7 {
                   s16 bd16 s8
                 }
-                \volta 4,8 {
+                \volta 4 {
+                  s4
+                }
+                \volta 8 {
                   s4
                 }
               }
