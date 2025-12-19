@@ -25,21 +25,21 @@ notation used in the charts.
 
 ### Finished
 
-- Linkin Park - One Step Closer
-- SOAD - Toxicity
 - Korn - Did My Time
 - Korn – Here to Stay
-- Underschool Element – Petit Tom
+- Linkin Park - One Step Closer
 - Muse – Time is Running Out
+- Papa Roach – Last Resort
+- System of a Down - Toxicity
+- Underschool Element – Petit Tom
 
 ### In Progress
 
+- Blink 182 – What’s My Age Again
 
 ### Next
 
-- Papa Roach – Last Resort
 - Rage Against the Machine – Killing in the Name
 - Sum 41 - Fat Lip
-- Blink 182 – What’s My Age Again
 - Fountains of Wayne – Stacy’s Mom
 - Bloodhound Gang – F.U.C.K.
