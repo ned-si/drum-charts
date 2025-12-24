@@ -32,6 +32,7 @@ notation used in the charts.
 - Papa Roach – Last Resort
 - System of a Down - Toxicity
 - Underschool Element – Petit Tom
+- Sum 41 - Fat Lip
 
 ### In Progress
 
@@ -40,6 +41,5 @@ notation used in the charts.
 ### Next
 
 - Rage Against the Machine – Killing in the Name
-- Sum 41 - Fat Lip
 - Fountains of Wayne – Stacy’s Mom
 - Bloodhound Gang – F.U.C.K.
