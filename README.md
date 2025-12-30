@@ -33,13 +33,13 @@ notation used in the charts.
 - System of a Down - Toxicity
 - Underschool Element – Petit Tom
 - Sum 41 - Fat Lip
+- Blink 182 – What’s My Age Again
 
 ### In Progress
 
-- Blink 182 – What’s My Age Again
+- Bloodhound Gang – F.U.C.K.
 
 ### Next
 
 - Rage Against the Machine – Killing in the Name
 - Fountains of Wayne – Stacy’s Mom
-- Bloodhound Gang – F.U.C.K.
