@@ -25,21 +25,21 @@ notation used in the charts.
 
 ### Finished
 
+- Blink 182 – What’s My Age Again
+- Bloodhound Gang – F.U.C.K.
+- Fountains of Wayne – Stacy’s Mom
 - Korn - Did My Time
 - Korn – Here to Stay
 - Linkin Park - One Step Closer
 - Muse – Time is Running Out
 - Papa Roach – Last Resort
+- Sum 41 - Fat Lip
 - System of a Down - Toxicity
 - Underschool Element – Petit Tom
-- Sum 41 - Fat Lip
-- Blink 182 – What’s My Age Again
-- Bloodhound Gang – F.U.C.K.
 
 ### In Progress
 
-- Fountains of Wayne – Stacy’s Mom
+- Rage Against the Machine – Killing in the Name
 
 ### Next
 
-- Rage Against the Machine – Killing in the Name
