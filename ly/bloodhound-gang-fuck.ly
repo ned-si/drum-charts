@@ -21,7 +21,7 @@
   <<
     \new DrumStaff {
     \override Score.MetronomeMark.outside-staff-horizontal-padding = 5
-    \tempo 4 = 92
+    \tempo 4 = 136
       \set DrumStaff.instrumentName = #"Pre-Intro"
       <<
         \new DrumVoice = "hands" {
@@ -218,6 +218,8 @@
   \column
   \bold {
     { "Intro" }
+    \hspace #0
+    { "Verse" }
     \hspace #0
     { "Pre-Chorus" }
     \hspace #0
