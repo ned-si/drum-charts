@@ -30,14 +30,14 @@
         \override MultiMeasureRest.expand-limit = 1
         R1*3
         r2 r4. cymr8
-        cymr4. \flam cymr4 cymr8 cymr \tuplet 3/2 { cymr16 cymr cymr }
+        cymr4. \flam cymr8 r cymr cymr cymr16:32 cymr:32
+        cymr8 cymr cymr \flam cymr \flam cymr cymr cymr cymr
+        \flam cymr4 cymr8 \flam cymr r cymr16:32 cymr:32 cymr8 cymr
         \flam cymr8 cymr cymr \flam cymr \flam cymr cymr cymr cymr
-        \flam cymr4 cymr8 \flam cymr r \tuplet 3/2 { cymr16 cymr cymr } cymr8 cymr
-        \flam cymr8 cymr cymr \flam cymr \flam cymr cymr cymr cymr
-        cymr8 \tuplet 3/2 { cymr16 cymr cymr } cymr8 \flam cymr r cymr cymr cymr
-        \flam cymr8 cymr cymr \flam cymr \flam cymr cymr cymr cymr
-        cymr8 \tuplet 3/2 { cymr16 cymr cymr } cymr8 \flam cymr r cymr cymr cymr
-        \flam cymr8 cymr cymr \flam cymr \flam cymr cymr cymr hho
+        cymr8 cymr16 cymr cymr8 \flam cymr r cymr cymr cymr
+        \flam cymr8 cymr cymr cymr \flam cymr cymr cymr cymr
+        cymr8 cymr16:32 cymr:32 cymr8 cymr r cymr cymr cymr
+        \flam cymr8 cymr cymr cymr cymr cymr cymr hho
       }
     }
   }
@@ -196,10 +196,10 @@
             \drummode {
               \alternative {
                 \volta 1 {
-                  <cymc cymch>4 cymr8 cymr cymr cymr cymr \tuplet 3/2 { cymr16 cymr cymr }
+                  <cymc cymch>8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
                 }
                 \volta 2,3 {
-                  cymr8 cymr cymr cymr cymr cymr cymr \tuplet 3/2 { cymr16 cymr cymr }
+                  cymr8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
                 }
                 \volta 4 {
                   cymr8 cymr cymr cymr cymr cymr <cymr ss> cymr
