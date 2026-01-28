@@ -33,13 +33,13 @@ notation used in the charts.
 - Linkin Park - One Step Closer
 - Muse – Time is Running Out
 - Papa Roach – Last Resort
+- Rage Against the Machine – Killing in the Name
 - Sum 41 - Fat Lip
 - System of a Down - Toxicity
 - Underschool Element – Petit Tom
 
 ### In Progress
 
-- Rage Against the Machine – Killing in the Name
 
 ### Next
 
