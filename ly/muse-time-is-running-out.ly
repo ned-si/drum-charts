@@ -71,13 +71,13 @@
               bd4 s
               \alternative {
                 \volta 1,2,3,5,6,7,9,10,11,13,14,15 {
-                  s2
+                  bd4 s
                 }
                 \volta 4,8,12 {
-                  s2
+                  bd4 s
                 }
                 \volta 8 {
-                  s2
+                  bd4 s
                 }
               }
             }
@@ -153,7 +153,7 @@
                   cymc8 cymc <cymc sn> cymc cymc cymc <cymc sn> cymc
                 }
                 \volta 8 {
-                  \repeat unfold 2 { <tomfh toml>8 <tomfh toml> \flam sn4 }
+                  \repeat unfold 2 { <tomfh toml>4 \flam sn }
                 }
               }
             }
@@ -169,7 +169,7 @@
                   bd8 bd s bd[ bd bd] s bd
                 }
                 \volta 8 {
-                  bd8 bd s bd[ bd bd] s bd
+                  s8 bd4 bd bd bd8
                 }
               }
             }
@@ -240,13 +240,13 @@
           \bar ".|:-|"
           \repeat volta 12 {
             \drummode {
-              <hh tomfh>8 <hh tomfh> <hh sn>4
+              hh4 <hh sn>4
               \alternative {
                 \volta 1,2,3,5,6,7,9,10,11 {
                   hh4 <hh sn>
                 }
-                \volta 4 {
-                  <hh tomfh>8 <hh tomfh> <hh sn>4
+                \volta 4,8,12 {
+                  hh4 <hh sn>
                 }
               }
             }
@@ -262,7 +262,7 @@
                 \volta 1,2,3,5,6,7,9,10,11 {
                   s2
                 }
-                \volta 4 {
+                \volta 4,8,12 {
                   bd8 bd s bd
                 }
               }
@@ -275,6 +275,7 @@
 }
 
 \score {
+  \layout{ ragged-right = ##f }
   <<
     \new DrumStaff {
       \set DrumStaff.instrumentName = #"Pre-Chorus 2"
@@ -286,13 +287,9 @@
           \repeat volta 8 {
             \drummode {
               \alternative {
-                \volta 1,2,3,4,5,6 {
-                  tomfh16 tomh tomfh8 \flam sn8. tomh16 toml toml tomfh8 \flam
+                \volta 1,2,3,4,5,6,7 {
+                  tomfh16 toml tomfh8 \flam sn8 tomfh16 toml tomfh toml tomfh8 \flam
                   sn hho
-                }
-                \volta 7 {
-                  tomfh16 tomh tomfh8 \flam sn8. tomh16 toml toml tomfh8 \flam
-                  sn8 tomfh16 sn
                 }
                 \volta 8 {
                   s8 \flam sn4 \flam sn8 \flam sn4 \flam sn8 sn16 sn
@@ -307,11 +304,8 @@
           \repeat volta 8 {
             \drummode {
               \alternative {
-                \volta 1,2,3,4,5,6 {
-                  <bd hhp>8. bd16 s4 bd8. bd16 s4
-                }
-                \volta 7 {
-                  <bd hhp>8. bd16 s4 bd8. bd16 s4
+                \volta 1,2,3,4,5,6,7 {
+                  s8. bd4 s bd s16
                 }
                 \volta 8 {
                   bd8. bd8 bd4 bd8 bd8 bd8.
@@ -394,7 +388,7 @@
                   cymc8 cymc <cymc sn> cymc16 sn cymc8 cymc <cymc sn> cymc
                 }
                 \volta 8 {
-                  cymc8 sn16 sn sn sn tomh sn sn sn tomh tomfh \flam sn4
+                  cymc8 sn16 sn sn sn tomh8 sn16 tomh tomfh8 \flam sn4
                 }
               }
             }
@@ -419,7 +413,7 @@
                   bd8 bd s4 bd8 bd s4
                 }
                 \volta 8 {
-                  bd4 s8 bd s8. bd16 s8 bd
+                  bd4 s4 s8. bd bd8
                 }
               }
             }
@@ -433,12 +427,12 @@
 \markuplist {
   \column
   \bold {
+    \hspace #0
     { "Verse 1 - 12x" }
     \hspace #0
     { "Pre-Chorus 2" }
     \hspace #0
     { "Chorus 2" }
-    \hspace #0
   }
 }
 
