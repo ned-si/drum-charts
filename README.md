@@ -40,6 +40,8 @@ notation used in the charts.
 
 ### In Progress
 
+- Underschool Element – Petit Tom: test with all stems up
+
 
 ### Next
 
