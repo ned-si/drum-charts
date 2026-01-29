@@ -194,8 +194,8 @@
         <hho sn>4 hho8 bd hho4 <hho sn>
         hho8 bd hho sn hho8 bd16 bd <hho sn>8 bd
         <cymc bd>8. bd16 \flam sn16 bd <cymc bd>8 sn16 <hho bd>8 <hho bd> sn16 sn bd
-        \flam sn16 <cymc bd>8 <cymch bd> tomh16 tomh toml toml32 tomfh tomfh
-        tomfh16 s32 hho hho <hho bd>16. \repeat unfold 5 { sn32 }
+        \flam sn16 <cymc bd>8 <cymch bd> tomh16 tomh toml toml32 tomfh16:32
+        tomfh16. hho32 hho <hho bd>16. \repeat unfold 2 { sn16:32 } sn32
       }
     }
   }
