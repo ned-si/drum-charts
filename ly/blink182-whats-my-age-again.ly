@@ -14,7 +14,7 @@
 
 % Custom markup to create vertical space after header
 \markup {
-  \vspace #-1
+  \vspace #0
 }
 
 \score {
@@ -45,132 +45,75 @@
 
 \score {
   \layout{ ragged-right = ##f }
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Verse"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 5 {
-            \drummode {
-              \alternative {
-                \volta 1,2,3 {
-                  hh8 hh <hh sn> hh hh hh <hh sn> hh
-                }
-                \volta 4 {
-                  hho8 hho hho <cymc sn> hho hho hho hho
-                }
-                \volta 5 {
-                  hho8 <cymc sn> hho hho hho sn16 sn toml toml tomfh tomfh
-                }
-              }
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Verse"
+    \new DrumVoice = "hands" {
+      \numericTimeSignature
+      \voiceOne
+      \bar ".|:-|"
+      \repeat volta 5 {
+        \drummode {
+          \alternative {
+            \volta 1,2,3 {
+              <hh bd>8 <hh bd> <hh sn> hh <hh bd> <hh bd> <hh sn> hh
             }
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 5 {
-            \drummode {
-              \alternative {
-                \volta 1,2,3 {
-                  bd8 bd s4 bd8 bd s4
-                }
-                \volta 4 {
-                  bd4 bd s bd
-                }
-                \volta 5 {
-                  bd4 bd
-                }
-              }
+            \volta 4 {
+              <hho bd>8 hho <hho bd> <cymc sn> hho hho <hho bd> hho
+            }
+            \volta 5 {
+              <hho bd>8 <cymc sn> <hho bd> hho hho sn16 sn toml toml tomfh tomfh
             }
           }
         }
-      >>
+      }
+      \bar "|."
     }
-  >>
+  }
 }
 
 \score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Chorus"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 4 {
-            \drummode {
-              cymc4 <cymc sn> cymc <cymc sn>
-              \alternative {
-                \volta 1,3 {
-                  cymc4 <cymc sn> cymc8 <toml sn> s <sn tomfh>
-                }
-                \volta 2 {
-                  cymc8 sn16 sn sn sn hho8 hho sn16 sn toml toml tomfh tomfh
-                }
-                \volta 4 {
-                  <cymc sn>4 cymc8 sn cymc4 <cymc sn>
-                  cymc8 sn <cymc sn> s <cymc sn> sn <cymc sn> s
-                }
-              }
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Chorus"
+    \new DrumVoice = "hands" {
+      \numericTimeSignature
+      \voiceOne
+      \bar ".|:-|"
+      \repeat volta 4 {
+        \drummode {
+          <cymc bd>4 <cymc sn>8 bd <cymc bd>4 <cymc sn>8 bd
+          \alternative {
+            \volta 1,3 {
+              <cymc bd>4 <cymc sn>8 bd <cymc bd> <toml sn> bd <sn tomfh>
             }
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 4 {
-            \drummode {
-              bd4. bd8[ bd] s4 bd8
-              \alternative {
-                \volta 1,3 {
-                  bd4. bd8[ bd] s bd4
-                }
-                \volta 2 {
-                  bd4. bd8[ bd8] s4.
-                }
-                \volta 4 {
-                  s8 bd bd s4 bd4 bd8
-                  bd4. bd2 bd8
-                }
-              }
+            \volta 2 {
+              <cymc bd>8 sn16 sn sn sn <hho bd>8 <hho bd> sn16 sn toml toml tomfh tomfh
+            }
+            \volta 4 {
+              <cymc sn>8 bd <cymc bd> sn cymc bd <cymc sn> bd
+              <cymc bd>8 sn <cymc sn> bd <cymc sn> sn <cymc sn> bd
             }
           }
         }
-      >>
+      }
+      \bar "|."
     }
-  >>
+  }
 }
 
 \score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Post-Chorus"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \drummode {
-            <cymc cymch>1
-            r2. r8 hho
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \drummode {
-            <bd hhp>4 hhp hhp hhp
-            hhp4 hhp hhp hhp
-          }
-        }
-      >>
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Post-Chorus"
+    \new DrumVoice = "hands" {
+      \numericTimeSignature
+      \voiceOne
+      \bar ".|:-|"
+      \drummode {
+        <cymc cymch bd hhp>4 hhp hhp hhp
+        hhp4 hhp hhp hhp8 hho
+      }
+      \bar "|."
     }
-  >>
+  }
 }
 
 \markuplist {
@@ -184,76 +127,43 @@
 }
 
 \score {
-  <<
-    \new DrumStaff {
-      \set DrumStaff.instrumentName = #"Bridge"
-      <<
-        \new DrumVoice = "hands" {
-          \numericTimeSignature
-          \voiceOne
-          \bar ".|:-|"
-          \repeat volta 16 {
-            \drummode {
-              \alternative {
-                \volta 1 {
-                  <cymc cymch>8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
-                }
-                \volta 2,3 {
-                  cymr8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
-                }
-                \volta 4 {
-                  cymr8 cymr cymr cymr cymr cymr <cymr ss> cymr
-                }
-                \volta 5,6,7 {
-                  cymr8 cymr <cymr ss> cymr cymr cymr <cymr ss> cymr
-                }
-                \volta 8 {
-                  cymr8 cymr <cymr ss> cymr cymr <cymr ss> <cymr ss> cymr
-                }
-                \volta 9,10,11,12,13,14,15 {
-                  cymr8 cymr <cymr ss> cymr cymr cymr <cymr ss> cymr
-                }
-                \volta 16 {
-                  cymr8 cymr <cymr ss> cymr cymr sn16 sn toml toml tomfh tomfh
-                }
-              }
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Bridge"
+    \new DrumVoice = "hands" {
+      \numericTimeSignature
+      \voiceOne
+      \bar ".|:-|"
+      \repeat volta 16 {
+        \drummode {
+          \alternative {
+            \volta 1 {
+              <cymc cymch bd>8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
             }
-          }
-          \bar "|."
-        }
-        \new DrumVoice = "feet" {
-          \voiceTwo
-          \repeat volta 16 {
-            \drummode {
-              \alternative {
-                \volta 1 {
-                  bd1
-                }
-                \volta 2,3 {
-                  s1
-                }
-                \volta 4 {
-                  s2. s8 bd
-                }
-                \volta 5,6,7 {
-                  bd4 s2 s8 bd
-                }
-                \volta 8 {
-                  bd4 s2 s8 bd
-                }
-                \volta 9,10,11,12,13,14,15 {
-                  bd4. bd4 bd bd8
-                }
-                \volta 16 {
-                  bd2 bd
-                }
-              }
+            \volta 2,3 {
+              cymr8 cymr cymr cymr cymr cymr cymr cymr16:32 cymr:32
+            }
+            \volta 4 {
+              cymr8 cymr cymr cymr cymr cymr <cymr ss> <cymr bd>
+            }
+            \volta 5,6,7 {
+              <cymr bd>8 cymr <cymr ss> cymr cymr cymr <cymr ss> <cymr bd>
+            }
+            \volta 8 {
+              <cymr bd>8 cymr <cymr ss> cymr cymr <cymr ss> <cymr ss> <cymr bd>
+            }
+            \volta 9,10,11,12,13,14,15 {
+              <cymr bd>8 cymr <cymr ss> <cymr bd> cymr <cymr bd> <cymr ss> <cymr
+              bd>
+            }
+            \volta 16 {
+              <cymr bd>8 cymr <cymr ss> cymr <cymr bd> sn16 sn toml toml tomfh tomfh
             }
           }
         }
-      >>
+      }
+      \bar "|."
     }
-  >>
+  }
 }
 
 \markuplist {

@@ -20,6 +20,11 @@ unique visual clarity. This allows for an easily readable format that highlights
 critical rhythmic patterns and beats.
 - **Legend:** A `legend.pdf` is available to explain all custom symbols and
 notation used in the charts.
+- **Stems up**: After writing charts with stems up for hands, and down for feet,
+  it turned out that while it's visually interesting to have this clear
+  distinction, it also makes things quite hard to decipher in some cases. All
+  existing charts will be moved to this style, all new ones will adopt it
+  directly. All previously made charts with stems both up and down are archived.
 
 ## Available Drum Charts
 
@@ -39,8 +44,6 @@ notation used in the charts.
 - Underschool Element – Petit Tom
 
 ### In Progress
-
-- Underschool Element – Petit Tom: test with all stems up
 
 
 ### Next
