@@ -22,7 +22,7 @@
     \override Score.MetronomeMark.outside-staff-horizontal-padding = 1
     \tempo 4 = 157
     \set DrumStaff.instrumentName = #"Intro"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \drummode {
@@ -47,7 +47,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Verse"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -74,7 +74,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -103,7 +103,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Post-Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -129,7 +129,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Bridge"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -175,3 +175,4 @@
     \hspace #0
   }
 }
+
