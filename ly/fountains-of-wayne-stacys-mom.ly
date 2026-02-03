@@ -150,22 +150,26 @@
         \drummode {
           \alternative {
             \volta 1,6 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> cymc <cymc bd> <cymc sn> <cymc bd>
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> cymc <cymc bd> <cymc sn>
+              <cymc bd>
             }
             \volta 2 {
               cymc8 <cymc bd> <cymc sn> cymc <cymc bd> <cymc bd> <cymc sn> cymc
             }
             \volta 3,5 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> cymc <cymc bd> <cymc sn> cymc
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> cymc <cymc bd> <cymc sn>
+              cymc
             }
             \volta 4 {
-              <cymc bd>8 <cymc bd> <cymc sn> cymc <cymc bd> <cymc bd> <cymc sn> \parenthesize cymc16 r
+              <cymc bd>8 <cymc bd> <cymc sn> cymc <cymc bd> <cymc bd> <cymc sn>
+              \parenthesize cymc16 r
             }
             \volta 7 {
               <cymc bd>8 <hho bd> <hho sn> hho <hho bd> <hho bd> <hho sn> hho
             }
             \volta 8 {
-              <toml tomfh bd hhp>8 <toml tomfh> <toml tomfh bd hhp> <toml tomfh> <toml tomfh bd hhp> <toml tomfh> <toml tomfh bd hhp> <hho sn>
+              <toml tomfh bd hhp>8 <toml tomfh> <toml tomfh bd hhp> <toml tomfh>
+              <toml tomfh bd hhp> <toml tomfh> <toml tomfh bd hhp> <hho sn>
             }
           }
         }
@@ -226,10 +230,12 @@
           s1
           \alternative {
             \volta 4 {
-              cymc8 <cymc bd> <cymc sn> cymc16 sn <cymc bd>8 <cymc sn> sn16 sn sn sn
+              cymc8 <cymc bd> <cymc sn> cymc16 sn <cymc bd>8 <cymc sn> sn16 sn
+              sn sn
             }
             \volta 8 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc sn>16 sn sn sn sn sn
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc sn>16 sn
+              sn sn sn sn
             }
           }
         }
@@ -262,7 +268,8 @@
           s1
           \alternative {
             \volta 8 {
-              <cymc tomfh bd>8 <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> cymc
+              <cymc tomfh bd>8 <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd>
+              <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> cymc
             }
           }
         }
