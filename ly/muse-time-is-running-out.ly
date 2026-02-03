@@ -76,7 +76,8 @@
       \bar ".|:-|"
       \repeat volta 8 {
         \drummode {
-          <tomfh sn bd>8 <tomfh sn bd> <tomfh sn bd> <tomfh sn bd> <tomfh sn bd>[ <tomfh
+          <tomfh sn bd>8 <tomfh sn bd> <tomfh sn bd> <tomfh sn bd> <tomfh sn
+          bd>[ <tomfh
           sn bd>]
           \alternative {
             \volta 1,2,3,4,5,6,7 {
@@ -105,7 +106,8 @@
         \drummode {
           \alternative {
             \volta 1,2,3,4,5,6,7 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc bd> <cymc sn> <cymc bd>
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc bd> <cymc
+              sn> <cymc bd>
             }
             \volta 8 {
               \repeat unfold 2 { <tomfh toml>8 bd \flam sn bd }
@@ -184,11 +186,12 @@
         \drummode {
           \alternative {
             \volta 1,2,3,4,5,6,7 {
-              tomfh16 toml tomfh bd \flam sn8 tomfh16 toml tomfh toml tomfh bd \flam
-              sn8 hho
+              tomfh16 toml tomfh bd \flam sn8 tomfh16 toml tomfh toml tomfh bd
+              \flam sn8 hho
             }
             \volta 8 {
-              bd8 \flam sn16 bd8  bd16 \flam sn8 \flam sn16 bd8 bd16 \flam sn16 bd sn sn
+              bd8 \flam sn16 bd8  bd16 \flam sn8 \flam sn16 bd8 bd16 \flam sn16
+              bd sn sn
             }
           }
         }
@@ -210,10 +213,12 @@
         \drummode {
           \alternative {
             \volta 1,2,3,4,5,6,7 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc bd> <cymc sn> <cymc bd>
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd> <cymc bd> <cymc
+              sn> <cymc bd>
             }
             \volta 8 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd>8 sn16 sn sn sn sn sn
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <cymc bd>8 sn16 sn sn sn
+              sn sn
             }
           }
         }
@@ -237,13 +242,15 @@
               \repeat unfold 2 { <cymc bd>8 cymc <cymc sn> cymc }
             }
             \volta 4 {
-              \repeat unfold 2 { <cymc sn bd>8 <cymc bd> <cymc sn bd> <cymc bd> }
+              \repeat unfold 2 { <cymc sn bd>8 <cymc bd> <cymc sn bd> <cymc bd>
+              }
             }
             \volta 6 {
               <cymc bd>8 cymc <cymc sn> cymc <cymc bd> cymc <cymc sn> sn16 sn
             }
             \volta 7 {
-              <cymc bd>8 <cymc bd> <cymc sn> cymc16 sn <cymc bd>8 <cymc bd> <cymc sn> cymc
+              <cymc bd>8 <cymc bd> <cymc sn> cymc16 sn <cymc bd>8 <cymc bd>
+              <cymc sn> cymc
             }
             \volta 8 {
               <cymc bd>8 sn16 sn sn sn tomh8 sn16 tomh tomfh bd \flam sn8 bd
@@ -283,7 +290,8 @@
           s1
           \alternative {
             \volta 8 {
-              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <toml tomfh bd>8 <toml tomfh bd> \flam sn4
+              <cymc bd>8 <cymc bd> <cymc sn> <cymc bd> <toml tomfh bd>8 <toml
+              tomfh bd> \flam sn4
             }
           }
         }
@@ -305,11 +313,12 @@
         \drummode {
           \alternative {
             \volta 1,2 {
-              <toml tomfh bd>8 <toml tomfh bd> \flam sn <toml tomfh bd> r4 \flam sn
+              <toml tomfh bd>8 <toml tomfh bd> \flam sn <toml tomfh bd> r4 \flam
+              sn
             }
             \volta 3 {
-              <toml tomfh bd>8 <toml tomfh bd> \flam sn <toml tomfh bd> r4 \flam sn8
-              sn16 sn
+              <toml tomfh bd>8 <toml tomfh bd> \flam sn <toml tomfh bd> r4 \flam
+              sn8 sn16 sn
             }
             \volta 4 {
               <toml tomfh bd>8 <toml tomfh bd> \flam sn <toml tomfh bd> r2
