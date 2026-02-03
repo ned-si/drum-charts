@@ -201,7 +201,8 @@
               <cymc bd>8 hho16 bd <hho sn>8 <cymc bd>
             }
             \volta 4 {
-              <cymc sn bd>16 <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd> 
+              <cymc sn bd>16 <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd>
+              <cymc sn bd> <cymc sn bd> <cymc sn bd> 
             }
           }
         }
@@ -231,8 +232,8 @@
               sn16 bd
             }
             \volta 12 {
-              <sn tomfh>16 <sn tomfh> hhp bd <sn tomfh> bd <cymc sn>8 \tuplet 6/4 {
-                sn16 sn sn sn sn sn } \tuplet 6/4 { sn sn sn sn sn sn }
+              <sn tomfh>16 <sn tomfh> hhp bd <sn tomfh> bd <cymc sn>8 \tuplet
+              6/4 { sn16 sn sn sn sn sn } \tuplet 6/4 { sn sn sn sn sn sn }
             }
           }
         }
@@ -254,10 +255,12 @@
         \drummode {
           \alternative {
             \volta 1,2,3,5,6,7 {
-              <cymc bd>16 bd hho bd <hho sn>8 hho16 bd hho8 <hho bd>16 bd <hho sn>8 hho
+              <cymc bd>16 bd hho bd <hho sn>8 hho16 bd hho8 <hho bd>16 bd <hho
+              sn>8 hho
             }
             \volta 4,8 {
-              <cymc bd>16 bd hho bd <hho sn>8 hho16 sn hho sn <hho bd> bd <hho sn> bd <hho sn>8
+              <cymc bd>16 bd hho bd <hho sn>8 hho16 sn hho sn <hho bd> bd <hho
+              sn> bd <hho sn>8
             }
           }
         }
@@ -294,7 +297,8 @@
           \alternative {
             \volta 1 {
               \repeat unfold 4 {
-                <cymc bd>32 <cymch hhp> <cymc bd> <cymch hhp> <cymc bd> <cymch hhp> <cymc bd> <cymch hhp>
+                <cymc bd>32 <cymch hhp> <cymc bd> <cymch hhp> <cymc bd> <cymch
+                hhp> <cymc bd> <cymch hhp>
               }
             }
             \volta 2,3,4,5,6 {
@@ -343,7 +347,8 @@
             sn16 sn sn sn sn sn
           }
         }
-        \tuplet 3/2 { <cymc bd>4_\markup { \italic "rit." } <cymc bd> <cymc bd> }
+        \tuplet 3/2 { <cymc bd>4_\markup { \italic "rit." } <cymc bd> <cymc bd>
+        }
         \tuplet 3/2 { <cymc sn>4 <cymc sn> <cymc sn> }
       }
       \bar "|."
