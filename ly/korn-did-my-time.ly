@@ -45,10 +45,11 @@
           hho4 hho hho hho
           hhp1
         }
-        <cymc cymch bd>8 bd16 bd <hho sn>8 bd16 bd <hho bd>8 bd16 bd <hho sn>8[ bd16 tomfh32 tomfh]
-%        \break
+        <cymc cymch bd>8 bd16 bd <hho sn>8 bd16 bd <hho bd>8 bd16 bd <hho sn>8[
+        bd16 tomfh32 tomfh]
         <tomfh hhp>4 hhp hhp hhp16 bd sn8
-        <cymc cymch bd>8 <hho bd>16 bd <hho sn>8 <hho sn> <hho bd>16 sn <hho bd>8 <hho sn>8 <hho sn>16 tomfh32 tomfh
+        <cymc cymch bd>8 <hho bd>16 bd <hho sn>8 <hho sn> <hho bd>16 sn <hho
+        bd>8 <hho sn>8 <hho sn>16 tomfh32 tomfh
         <tomfh hhp>4 hhp hhp hhp16 bd sn8
       }
       \bar "|."
@@ -66,7 +67,8 @@
       \bar ".|:-|"
       \repeat volta 4 {
         \drummode {
-          <cymc cymch bd>8 cymc16 bd <cymc sn>8 <cymc bd> cymc16 bd cymc8 <cymc sn>16 bd cymc8
+          <cymc cymch bd>8 cymc16 bd <cymc sn>8 <cymc bd> cymc16 bd cymc8 <cymc
+          sn>16 bd cymc8
           <cymc cymch bd>8 cymc16 bd <cymc sn>16 sn <cymc bd>8
           \alternative {
             \volta 1,2 {
@@ -76,7 +78,8 @@
               cymc16 bd <cymc sn>8 <cymc sn> tomh16 toml32 toml
             }
             \volta 4 {
-              r16 tomh32_\right[ tomh_\left toml8_\right] toml8_\left \tuplet 3/2 { tomfh16_\right tomfh16_\left tomfh16_\left }
+              r16 tomh32_\right[ tomh_\left toml8_\right] toml8_\left \tuplet
+              3/2 { tomfh16_\right tomfh16_\left tomfh16_\left }
             }
           }
         }
@@ -113,7 +116,8 @@
               \repeat unfold 2 { sn16 <hho bd> hhp8 }
             }
             \volta 8 {
-              <hh bd>8 hh16 bd <hh sn>8 \tuplet 3/2 { tomh16_\right tomh_\left toml_\right }
+              <hh bd>8 hh16 bd <hh sn>8 \tuplet 3/2 { tomh16_\right tomh_\left
+                toml_\right }
             }
           }
         }
@@ -171,14 +175,22 @@
       }
       \drummode {
         cymr4 cymr8 cymr16 sn cymr toml cymr sn sn sn toml tomfh
-        <cymc bd>8 cymr16 bd <cymr sn>8 cymr16 bd cymr cymr8 <cymr sn>16 <hh bd> cymr hh8
-        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn> bd cymc8
-        <cymr bd>16 hh cymr bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn> bd cymr hh
-        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 sn cymr toml cymr sn sn sn toml tomfh
-        <cymc bd>8 cymr16 bd <cymr sn> hh cymr bd cymr8 cymr16 bd <cymr sn> <hh bd> cymr hh
-        <cymr bd>16 hh cymr bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn> <hh bd> cymc hh
-        <cymr bd>8 cymr16 bd <cymr sn> hh cymr bd cymr hh cymr <hh bd> <cymr sn> <hh bd> cymr hh
-        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 sn cymr toml cymr sn \tuplet 3/2 { tomh tomh toml } \tuplet 3/2 { toml tomfh tomfh }
+        <cymc bd>8 cymr16 bd <cymr sn>8 cymr16 bd cymr cymr8 <cymr sn>16 <hh bd>
+        cymr hh8
+        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn> bd
+        cymc8
+        <cymr bd>16 hh cymr bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn> bd
+        cymr hh
+        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 sn cymr toml cymr sn sn sn toml
+        tomfh
+        <cymc bd>8 cymr16 bd <cymr sn> hh cymr bd cymr8 cymr16 bd <cymr sn> <hh
+        bd> cymr hh
+        <cymr bd>16 hh cymr bd <cymr sn>8 cymr16 bd cymr hh cymr bd <cymr sn>
+        <hh bd> cymc hh
+        <cymr bd>8 cymr16 bd <cymr sn> hh cymr bd cymr hh cymr <hh bd> <cymr sn>
+        <hh bd> cymr hh
+        <cymr bd>8 cymr16 bd <cymr sn>8 cymr16 sn cymr toml cymr sn \tuplet 3/2
+        { tomh tomh toml } \tuplet 3/2 { toml tomfh tomfh }
       }
       \repeat volta 4 {
         \drummode {
