@@ -22,7 +22,7 @@
     \override Score.MetronomeMark.outside-staff-horizontal-padding = 1
     \tempo 4 = 196
     \set DrumStaff.instrumentName = #"Pre-Intro"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \drummode {
@@ -39,7 +39,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Intro"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       <>^\markup \bold "4×"
       \numericTimeSignature
       \voiceOne
@@ -66,7 +66,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Verse"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       <>^\markup \bold "4×"
       \numericTimeSignature
       \voiceOne
@@ -95,7 +95,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Pre-Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -135,7 +135,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       <>^\markup \bold "4×"
       \numericTimeSignature
       \voiceOne
@@ -164,7 +164,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Post-Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -206,7 +206,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Post-Chorus-2"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -237,7 +237,7 @@
   \new DrumStaff {
     \override Score.MetronomeMark.outside-staff-horizontal-padding = 1
     \set DrumStaff.instrumentName = #"Bridge-1"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \drummode {
@@ -253,7 +253,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Bridge-2"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -283,7 +283,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Bridge-3"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -312,7 +312,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Bridge-4"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -341,7 +341,7 @@
 \score {
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Chorus"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       <>^\markup \bold "4×"
       \numericTimeSignature
       \voiceOne
@@ -366,7 +366,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Post-Chorus-3"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
@@ -395,7 +395,7 @@
   \layout{ ragged-right = ##f }
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Outro"
-    \new DrumVoice = "hands" {
+    \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
