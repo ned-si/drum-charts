@@ -171,8 +171,20 @@
   \bold {
     { "Chorus - 3 times (12 bars)" }
     \hspace #0
-    { "Post-Chorus - first 1/4 note" }
-    \hspace #0
   }
 }
 
+\score {
+  \new DrumStaff {
+    \set DrumStaff.instrumentName = #"Outro"
+    \new DrumVoice = "all" {
+      \numericTimeSignature
+      \voiceOne
+      \bar ".|:-|"
+      \drummode {
+        <cymc cymch bd hhp>1
+      }
+      \bar "|."
+    }
+  }
+}
