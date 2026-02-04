@@ -99,7 +99,7 @@
               }
             }
             \volta 4 {
-              bd2
+              \flam <sn bd>2
             }
           }
         }
@@ -201,8 +201,8 @@
               <cymc bd>8 hho16 bd <hho sn>8 <cymc bd>
             }
             \volta 4 {
-              <cymc sn bd>16 <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd>
-              <cymc sn bd> <cymc sn bd> <cymc sn bd> 
+              <cymc sn bd>16\< <cymc sn bd> <cymc sn bd> <cymc sn bd> <cymc sn bd>
+              <cymc sn bd> <cymc sn bd> <cymc sn bd>\!
             }
           }
         }
@@ -225,7 +225,7 @@
         \drummode {
           \alternative {
             \volta 1,2,3,4 {
-              <sn tomfh hhp>16 <sn tomfh hhp>8. <sn tomfh hhp>4 hhp hhp
+              <sn tomfh hhp>16 <sn tomfh>8. <sn tomfh hhp>4 hhp hhp
             }
             \volta 5,6,7,8,9,10,11 {
               <sn tomfh>16 <sn tomfh> hhp bd <sn tomfh>16 bd8 bd16 \flam sn8
