@@ -119,7 +119,7 @@
 \markuplist {
   \column
   \bold {
-    { "Verse" }
+    { "Verse - 8x before fill" }
     \hspace #0
     { "Chorus" }
     \hspace #0
