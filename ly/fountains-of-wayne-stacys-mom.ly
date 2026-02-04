@@ -42,15 +42,16 @@
   \new DrumStaff {
     \set DrumStaff.instrumentName = #"Intro"
     \new DrumVoice = "all" {
-      <>^\markup \bold "4×"
       \numericTimeSignature
       \voiceOne
       \bar ".|:-|"
       \repeat volta 4 {
         \drummode {
-          <hh bd>8 hh <hh bd> hh <hh bd> hh <hh bd> hh
-          <hh bd>8 hh <hh bd> hh <hh bd> hh <hh bd> <hho sn>
           \alternative {
+            \volta 1,2,3 {
+              <hh bd>8 hh <hh bd> hh <hh bd> hh <hh bd> hh
+              <hh bd>8 hh <hh bd> hh <hh bd> hh <hh bd> <hho sn>
+            }
             \volta 4 {
               <hh bd>8 hh <hh bd> hh <hh bd> hh <hh bd> hh
               <hh bd>8 hh <hh bd> hh <hh bd> sn sn sn
@@ -128,7 +129,7 @@
               hho <hho sn> hho] <hho bd> <hho bd> <hho sn> hho
             }
             \volta 4 {
-              <cymc bd>8 <cymc bd> <cymc bd> <cymc bd> <\parenthesize cymc bd>2
+              <cymc bd>8\< <cymc bd> <cymc bd> <cymc bd> <\parenthesize cymc bd>2\!
             }
           }
         }
@@ -168,8 +169,8 @@
               <cymc bd>8 <hho bd> <hho sn> hho <hho bd> <hho bd> <hho sn> hho
             }
             \volta 8 {
-              <toml tomfh bd hhp>8 <toml tomfh> <toml tomfh bd hhp> <toml tomfh>
-              <toml tomfh bd hhp> <toml tomfh> <toml tomfh bd hhp> <hho sn>
+              <toml tomfh bd hhp>8\< <toml tomfh> <toml tomfh bd hhp> <toml tomfh>
+              <toml tomfh bd hhp> <toml tomfh> <toml tomfh bd hhp> <hho sn>\!
             }
           }
         }
@@ -269,7 +270,7 @@
           \alternative {
             \volta 8 {
               <cymc tomfh bd>8 <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd>
-              <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> cymc
+              <cymc tomfh bd> <cymc tomfh bd> <cymc tomfh bd> \parenthesize cymc
             }
           }
         }
