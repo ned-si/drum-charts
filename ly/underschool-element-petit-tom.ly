@@ -12,9 +12,6 @@
   tagline = #f
 }
 
-% TODO: Open hh all need to close after being open...
-% TODO: Add sticking patterns for fills
-
 % Custom markup to create vertical space after header
 \markup {
   \vspace #-1
@@ -86,10 +83,10 @@
       \bar ".|:-|"
       \repeat volta 8 {
         \drummode {
-          bd8 tomfh16 bd \flam sn16 \parenthesize sn16 <hho bd>8
+          bd8 tomfh16 bd \flam sn8 <hho bd>
           \alternative {
             \volta 1,2,3,5,6,7 {
-              r16 tomh16 tomh8 <sn toml>8. \flam toml16
+              r16 tomh16 tomh8 <sn toml>8. \flam tomfh16
             }
             \volta 4 {
               r16 <tomh sn> <tomh sn>8 <toml sn>8. <cymc sn>16 
@@ -125,7 +122,7 @@
               hh16 \parenthesize sn hho bd sn cymch cymch bd
             }
             \volta 2 {
-              \tuplet 6/2 { cymc16 hh hh hh8 hh16 } hho8 \tuplet 3/2 { <hh tomh> sn16 }
+              \tuplet 6/2 { hh16 hh hh hh hh hh} hho8 \tuplet 3/2 { tomh sn16 }
             }
             \volta 3 {
               hh16 \parenthesize sn hho bd \flam sn8 hh16 sn
@@ -165,10 +162,10 @@
             }
             \volta 2 {
               <hh bd>16 \parenthesize sn hho8 <hh sn>8 hho16 \parenthesize sn
-              hh \parenthesize sn <hho bd> bd sn tomh:32 toml <tomfh bd>
+              hh \parenthesize sn <hho bd> bd sn tomh32 tomh toml16 bd
             }
             \volta 3 {
-              <hh bd>16 \parenthesize sn hho bd <hh sn>8 <hho sn>16 bd hh sn <hho bd> bd <hh sn>8 hh16 <cymc sn>
+              <hh bd>16 \parenthesize sn hho bd <hh sn>8 <hho sn>16 bd hh sn <hho bd> bd <hh sn>8. <cymc sn>16
             }
           }
         }
@@ -187,15 +184,13 @@
       \bar ".|:-|"
       \drummode {
         <cymc bd>8. bd16 <hho sn>8 bd hho4 <hho sn>
-        <hho bd>8 hho16 bd <hho sn>8 <\parenthesize sn bd> hho <\parenthesize sn
-        bd>16 bd <hho sn>8. sn16
-        <cymc bd>16 \parenthesize sn hho bd <hho sn>8 bd hho4 <hho sn>8 bd
-        hho16 bd8 sn16 hho8 bd <hho sn>16 bd hho8 hho <hho bd>16 bd
-        <hho sn>4 hho8 bd hho4 <hho sn>
-        hho8 bd hho sn hho8 bd16 bd <hho sn>8 bd
+        <hho bd>8. bd16 <hho sn>8 bd hho16 bd8 bd16 <hho sn>8. sn16
+        <hho bd>16 \parenthesize sn8 bd16 <hho sn>8 bd hho4 <hho sn>8 bd
+        hho16 bd8 sn16 hho8 bd <hho sn>16 bd8. hho8 bd16 bd
+        <hho sn>4 hho8 bd hho4 <hho sn> hho8 bd hho sn hho8 bd16 bd <hho sn>8 bd
         <cymc bd>8. bd16 \flam sn16 bd <cymc bd>8 sn16 <hho bd>8 <hho bd> sn16 sn bd
-        \flam sn16 <cymc bd>8 <cymch bd> tomh16 tomh toml toml32 tomfh16:32
-        tomfh16. hho32 hho <hho bd>16. \repeat unfold 2 { sn16:32 } sn32
+        \flam sn16 <cymc bd>8 <cymch bd> tomh32 tomh tomh16 toml32 toml toml16
+        tomfh32 tomfh tomfh16 hho32 hho <hho bd>16 sn32\< \repeat unfold 4 { sn32 } sn\!
       }
     }
   }
@@ -236,11 +231,10 @@
               \repeat unfold 2 { hh16 hh hho8 } hh4 hh
             }
             \volta 7 {
-              \repeat unfold 2 { \repeat unfold 6 { <hh bd>16 } <hho bd>8 }
+              \repeat unfold 2 { \repeat unfold 6 { hh16 } hho8 }
             }
             \volta 8 {
-              <hh bd>16 <hh bd> <hho bd> bd <hh bd>16 <hh bd> <hho bd>8 <sn bd>
-              sn16 tomfh tomfh <cymc bd>8.
+              hh16 hh hho8 hh16 hh hho8 sn tomfh16 tomfh sn <cymc bd>8.
             }
           }
         }
@@ -267,10 +261,10 @@
               <cymc bd>4 <cymc sn>
             }
             \volta 4 {
-              <cymc bd>8 <tomfh bd>16 tomfh sn <cymc bd>8.
+              <cymc bd>8 tomfh16 tomfh sn <cymc bd>8.
             }
             \volta 8 {
-              <cymc bd>8 <tomfh bd>16 tomfh:32 sn <cymc bd>8.
+              <cymc bd>8 tomfh32 tomfh tomfh16 sn <cymc bd>8.
             }
           }
         }
@@ -291,13 +285,13 @@
       \bar ".|:-|"
       \repeat volta 8 {
         \drummode {
-          <cymc bd>8 <cymc bd> <cymc sn> <cymc bd>
+          <cymc bd>8 <cymch bd> <cymc sn> <cymch bd>
           \alternative {
             \volta 1,2,3,5,6,7 {
-              <cymc bd>8 cymc <cymc sn> cymc
+              <cymc bd>8 cymch <cymc sn> cymch
             }
             \volta 4,8 {
-              <cymc bd>8 <tomfh bd>16 tomfh sn <cymc bd>8.
+              <cymc bd>8 tomfh16 tomfh sn <cymc bd>8.
             }
           }
         }
@@ -322,10 +316,10 @@
               <cymc sn bd>1
             }
             \volta 2 {
-              r2. \repeat unfold 4 { sn16 }
+              r2. sn16\< \repeat unfold 3 { sn16 }
             }
             \volta 3,4 {
-              \repeat unfold 16 { sn16 }
+              \repeat unfold 15 { sn16 } sn\!
             }
           }
         }
