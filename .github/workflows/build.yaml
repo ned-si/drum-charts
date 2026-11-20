@@ -1,0 +1,78 @@
+name: build
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions: {}
+
+env:
+  # Same version the charts were engraved with; bump with the \version lines.
+  LILYPOND_IMAGE: codello/lilypond:2.24.4@sha256:1b62064c51436bee7f40f04be5beecfaf003b8cd04009b0b4888d6dc6365108b
+  # FluidR3_GM.sf2 from Ubuntu 24.04 fluid-soundfont-gm 3.1-5.3.
+  SOUNDFONT_SHA256: 74594e8f4250680adf590507a306655a299935343583256f3b722c48a1bc1cb0
+
+jobs:
+  charts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install the audio tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends fluidsynth fluid-soundfont-gm ffmpeg
+          echo "${SOUNDFONT_SHA256}  /usr/share/sounds/sf2/FluidR3_GM.sf2" | sha256sum -c
+          docker pull -q "$LILYPOND_IMAGE"
+
+      - name: Build the PDFs and the audio
+        run: |
+          make -j"$(nproc)" all \
+            LILYPOND="docker run --rm -u $(id -u):$(id -g) -v $PWD:$PWD -w $PWD --entrypoint lilypond $LILYPOND_IMAGE"
+
+      - name: Check the audio is not silent
+        run: |
+          for f in build/*.mp3; do
+            max=$(ffmpeg -nostdin -i "$f" -af volumedetect -f null - 2>&1 | sed -n 's/.*max_volume: \(-\{0,1\}[0-9.]*\) dB/\1/p')
+            echo "$f max_volume ${max} dB"
+            awk -v m="$max" 'BEGIN { exit !(m != "" && m > -40) }'
+          done
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: drum-charts-${{ github.sha }}
+          path: |
+            build/*.pdf
+            build/*.mp3
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs: charts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: drum-charts-${{ github.sha }}
+          path: charts
+
+      - name: Publish a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          tag="charts-$(date -u +%Y-%m-%d)-${GITHUB_SHA::7}"
+          # A rerun of the same commit keeps its first release.
+          gh release view "$tag" > /dev/null 2>&1 && exit 0
+          gh release create "$tag" charts/*.pdf charts/*.mp3 \
+            --target "$GITHUB_SHA" --title "$tag" --notes "Built from ${GITHUB_SHA}."
