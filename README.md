@@ -11,23 +11,30 @@ between sections for the parts that come back.
 
 ## Songs
 
-13 songs in `songs/`:
+13 finished songs in `songs/`. The PDF and MP3 links point to the
+[latest release](https://github.com/ned-si/drum-charts/releases/latest).
 
-| Artist | Title | File |
-| --- | --- | --- |
-| Blink 182 | What's My Age Again | `blink182-whats-my-age-again.ly` |
-| Bloodhound Gang | Foxtrot Uniform Charlie Kilo | `bloodhound-gang-fuck.ly` |
-| Fountains of Wayne | Stacy's Mom | `fountains-of-wayne-stacys-mom.ly` |
-| Korn | Did My Time | `korn-did-my-time.ly` |
-| Korn | Here to Stay | `korn-here-to-stay.ly` |
-| Linkin Park | One Step Closer | `linkin-park-one-step-closer.ly` |
-| Muse | Time Is Running Out | `muse-time-is-running-out.ly` |
-| Papa Roach | Last Resort | `papa-roach-last-resort.ly` |
-| Rage Against The Machine | Killing In The Name | `ratm-killing-in-the-name.ly` |
-| System Of A Down | Toxicity | `soad-toxicity.ly` |
-| Sum 41 | Fat Lip | `sum41-fat-lip.ly` |
-| Trivium | Until The World Goes Cold | `trivium-until-the-world-goes-cold.ly` |
-| Underschool Element | Petit Tom | `underschool-element-petit-tom.ly` |
+| Title | Artist | Chart | PDF | MP3 |
+| --- | --- | --- | --- | --- |
+| What's My Age Again | Blink 182 | [`blink182-whats-my-age-again.ly`](songs/blink182-whats-my-age-again.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/blink182-whats-my-age-again.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/blink182-whats-my-age-again.mp3) |
+| Foxtrot Uniform Charlie Kilo | Bloodhound Gang | [`bloodhound-gang-fuck.ly`](songs/bloodhound-gang-fuck.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/bloodhound-gang-fuck.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/bloodhound-gang-fuck.mp3) |
+| Stacy's Mom | Fountains of Wayne | [`fountains-of-wayne-stacys-mom.ly`](songs/fountains-of-wayne-stacys-mom.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/fountains-of-wayne-stacys-mom.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/fountains-of-wayne-stacys-mom.mp3) |
+| Did My Time | Korn | [`korn-did-my-time.ly`](songs/korn-did-my-time.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/korn-did-my-time.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/korn-did-my-time.mp3) |
+| Here to Stay | Korn | [`korn-here-to-stay.ly`](songs/korn-here-to-stay.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/korn-here-to-stay.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/korn-here-to-stay.mp3) |
+| One Step Closer | Linkin Park | [`linkin-park-one-step-closer.ly`](songs/linkin-park-one-step-closer.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/linkin-park-one-step-closer.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/linkin-park-one-step-closer.mp3) |
+| Time Is Running Out | Muse | [`muse-time-is-running-out.ly`](songs/muse-time-is-running-out.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/muse-time-is-running-out.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/muse-time-is-running-out.mp3) |
+| Last Resort | Papa Roach | [`papa-roach-last-resort.ly`](songs/papa-roach-last-resort.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/papa-roach-last-resort.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/papa-roach-last-resort.mp3) |
+| Killing In The Name | Rage Against The Machine | [`ratm-killing-in-the-name.ly`](songs/ratm-killing-in-the-name.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/ratm-killing-in-the-name.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/ratm-killing-in-the-name.mp3) |
+| Toxicity | System Of A Down | [`soad-toxicity.ly`](songs/soad-toxicity.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/soad-toxicity.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/soad-toxicity.mp3) |
+| Fat Lip | Sum 41 | [`sum41-fat-lip.ly`](songs/sum41-fat-lip.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/sum41-fat-lip.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/sum41-fat-lip.mp3) |
+| Until The World Goes Cold | Trivium | [`trivium-until-the-world-goes-cold.ly`](songs/trivium-until-the-world-goes-cold.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/trivium-until-the-world-goes-cold.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/trivium-until-the-world-goes-cold.mp3) |
+| Petit Tom | Underschool Element | [`underschool-element-petit-tom.ly`](songs/underschool-element-petit-tom.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/underschool-element-petit-tom.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/underschool-element-petit-tom.mp3) |
+
+## Next
+
+In progress, listed here until their pull request merges:
+
+- Tool, Schism
 
 ## Layout
 
@@ -48,7 +55,7 @@ between sections for the parts that come back.
   `-` (`korn-here-to-stay.ly`, `ratm-killing-in-the-name.ly`). The PDF and
   the MP3 have the same base name.
 - A new song starts in `drafts/` and moves to `songs/` when it is finished;
-  then add it to the Songs table above.
+  then move it from Next to the Songs table above.
 - A correction is an edit of the song, not a new file: git history and the
   releases keep every earlier version.
 - Every song starts with `\include "definitions.ly"` and sets the custom
