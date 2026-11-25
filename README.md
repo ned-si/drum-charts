@@ -11,7 +11,7 @@ between sections for the parts that come back.
 
 ## Songs
 
-13 finished songs in `songs/`. The PDF and MP3 links point to the
+14 finished songs in `songs/`. The PDF and MP3 links point to the
 [latest release](https://github.com/ned-si/drum-charts/releases/latest).
 
 | Title | Artist | Chart | PDF | MP3 |
@@ -26,15 +26,14 @@ between sections for the parts that come back.
 | Last Resort | Papa Roach | [`papa-roach-last-resort.ly`](songs/papa-roach-last-resort.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/papa-roach-last-resort.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/papa-roach-last-resort.mp3) |
 | Killing In The Name | Rage Against The Machine | [`ratm-killing-in-the-name.ly`](songs/ratm-killing-in-the-name.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/ratm-killing-in-the-name.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/ratm-killing-in-the-name.mp3) |
 | Toxicity | System Of A Down | [`soad-toxicity.ly`](songs/soad-toxicity.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/soad-toxicity.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/soad-toxicity.mp3) |
+| Schism | Tool | [`tool-schism.ly`](songs/tool-schism.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/tool-schism.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/tool-schism.mp3) |
 | Fat Lip | Sum 41 | [`sum41-fat-lip.ly`](songs/sum41-fat-lip.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/sum41-fat-lip.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/sum41-fat-lip.mp3) |
 | Until The World Goes Cold | Trivium | [`trivium-until-the-world-goes-cold.ly`](songs/trivium-until-the-world-goes-cold.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/trivium-until-the-world-goes-cold.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/trivium-until-the-world-goes-cold.mp3) |
 | Petit Tom | Underschool Element | [`underschool-element-petit-tom.ly`](songs/underschool-element-petit-tom.ly) | [PDF](https://github.com/ned-si/drum-charts/releases/latest/download/underschool-element-petit-tom.pdf) | [MP3](https://github.com/ned-si/drum-charts/releases/latest/download/underschool-element-petit-tom.mp3) |
 
 ## Next
 
-In progress, listed here until their pull request merges:
-
-- Tool, Schism
+In progress, listed here until their pull request merges: none.
 
 ## Layout
 
