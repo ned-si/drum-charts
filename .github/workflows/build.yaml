@@ -27,7 +27,7 @@ jobs:
       - name: Install the audio tools
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q --no-install-recommends fluidsynth fluid-soundfont-gm ffmpeg
+          sudo apt-get install -y -q --no-install-recommends fluidsynth fluid-soundfont-gm ffmpeg poppler-utils
           echo "${SOUNDFONT_SHA256}  /usr/share/sounds/sf2/FluidR3_GM.sf2" | sha256sum -c
           docker pull -q "$LILYPOND_IMAGE"
 
@@ -44,6 +44,24 @@ jobs:
             awk -v m="$max" 'BEGIN { exit !(m != "" && m > -40) }'
           done
 
+      # A chart fits on 2 pages so it never needs a page turn; a long song
+      # may take 3 if its .ly has the line "% chart: long".
+      - name: Check the page count
+        run: |
+          status=0
+          for f in build/*.pdf; do
+            song="songs/$(basename "$f" .pdf).ly"
+            [ -f "$song" ] || continue
+            pages=$(pdfinfo "$f" | awk '/^Pages:/ { print $2 }')
+            echo "$f $pages pages"
+            if [ "$pages" -gt 3 ]; then
+              echo "::error file=$song::$pages pages, the limit is 3"
+              status=1
+            elif [ "$pages" -eq 3 ] && ! grep -q '^% chart: long' "$song"; then
+              echo "::warning file=$song::3 pages; fit it on 2 or mark it % chart: long"
+            fi
+          done
+          exit "$status"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: drum-charts-${{ github.sha }}

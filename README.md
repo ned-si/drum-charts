@@ -56,6 +56,10 @@ In progress, listed here until their pull request merges:
   the MP3 have the same base name.
 - A new song starts in `drafts/` and moves to `songs/` when it is finished;
   then move it from Next to the Songs table above.
+- A chart fits on 2 A4 pages, so it never needs a page turn. A long song
+  may take 3: add the line `% chart: long` to its file. Repeats with
+  alternative endings, `\repeat percent`, multi-bar rests and the staff size
+  are the tools to get there.
 - A correction is an edit of the song, not a new file: git history and the
   releases keep every earlier version.
 - Every song starts with `\include "definitions.ly"` and sets the custom
@@ -140,8 +144,9 @@ The `build` workflow runs on every push to any branch:
 
 1. `charts`: `make all` with LilyPond 2.24.4 in `codello/lilypond`, pinned
    by digest, and FluidSynth with `FluidR3_GM.sf2`, checked against its
-   SHA-256. It fails if an MP3 is silent, then uploads the PDFs and MP3s as
-   the artifact `drum-charts-<sha>` (kept 7 days).
+   SHA-256. It fails if an MP3 is silent or a PDF has more than 3 pages,
+   and warns at 3 pages unless the song is marked long. It then uploads
+   the PDFs and MP3s as the artifact `drum-charts-<sha>` (kept 7 days).
 2. `release`, on `main` only: creates the release
    `charts-<date>-<short sha>` with every PDF and MP3 of that build.
 
