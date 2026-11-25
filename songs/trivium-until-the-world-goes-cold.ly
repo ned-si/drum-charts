@@ -3,6 +3,12 @@
 \layout{
   \set DrumStaff.drumStyleTable = #(alist->hash-table custom-notes)
 }
+#(set-global-staff-size 18)
+\paper {
+  system-system-spacing.basic-distance = #10
+  score-system-spacing.basic-distance = #10
+  markup-system-spacing.basic-distance = #8
+}
 \header {
   title = "Trivium"
   subtitle = "Until The World Goes Cold"
