@@ -9,6 +9,26 @@ The charts follow the structure of a song, not every note of it: one staff
 per section (Intro, Verse, Chorus, ...), repeat counts above, and text
 between sections for the parts that come back.
 
+## Songs
+
+13 songs in `songs/`:
+
+| Artist | Title | File |
+| --- | --- | --- |
+| Blink 182 | What's My Age Again | `blink182-whats-my-age-again.ly` |
+| Bloodhound Gang | Foxtrot Uniform Charlie Kilo | `bloodhound-gang-fuck.ly` |
+| Fountains of Wayne | Stacy's Mom | `fountains-of-wayne-stacys-mom.ly` |
+| Korn | Did My Time | `korn-did-my-time.ly` |
+| Korn | Here to Stay | `korn-here-to-stay.ly` |
+| Linkin Park | One Step Closer | `linkin-park-one-step-closer.ly` |
+| Muse | Time Is Running Out | `muse-time-is-running-out.ly` |
+| Papa Roach | Last Resort | `papa-roach-last-resort.ly` |
+| Rage Against The Machine | Killing In The Name | `ratm-killing-in-the-name.ly` |
+| System Of A Down | Toxicity | `soad-toxicity.ly` |
+| Sum 41 | Fat Lip | `sum41-fat-lip.ly` |
+| Trivium | Until The World Goes Cold | `trivium-until-the-world-goes-cold.ly` |
+| Underschool Element | Petit Tom | `underschool-element-petit-tom.ly` |
+
 ## Layout
 
 | Path | Holds |
@@ -28,7 +48,7 @@ between sections for the parts that come back.
   `-` (`korn-here-to-stay.ly`, `ratm-killing-in-the-name.ly`). The PDF and
   the MP3 have the same base name.
 - A new song starts in `drafts/` and moves to `songs/` when it is finished;
-  nothing else to register.
+  then add it to the Songs table above.
 - A correction is an edit of the song, not a new file: git history and the
   releases keep every earlier version.
 - Every song starts with `\include "definitions.ly"` and sets the custom
