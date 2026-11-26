@@ -19,20 +19,21 @@
 % Cymbals from the Drumeo part: its circled cross on a ledger line is the
 % china (cymch), its bow-tie cross and its plain cross on a ledger line are
 % both the crash (cymc).
-% TODO(operator): check the bow-tie cymbal; mapped to the crash.
 % Toms: the Drumeo top-line and top-space toms are both tomh here.
 
-%% The riff phrases. Each is the 4 bars the bass riff takes, whatever the
-%% meters inside it; the drums follow its "pa-la-la-la la la la" phrasing.
+%% The riff phrases, 4 bars each whatever the meters inside: the drums follow
+%% the bass riff's "pa-la-la-la la la la" phrasing. One main pattern per
+%% phrase and at most one ending; the embellishments are left to the player.
 
 hhTriplet = \drummode { \tuplet 3/2 { <hh bd>16 hh hh } }
 tomTriplet = \drummode { \tuplet 3/2 { tomfh16 bd bda } }
 sextuplet = \drummode { \tuplet 6/4 { tomfh16 bd bda tomfh bd bda } }
 
-% Verse groove, 4-bar phrase: 5/8 7/8 5/8 7/8. The first seven opens the
-% hi-hat on a quarter, the second closes the phrase on two eighths.
+% Verse groove: 5/8 7/8 5/8 7/8. The first seven opens the hi-hat on a
+% quarter, the second closes the phrase on two eighths.
 fiveEnd = \drummode { <hh sn>8 hh \hhTriplet }
 five = \drummode { \time 2,3 5/8 <hh bd>8 hh \fiveEnd }
+chinaFive = \drummode { \time 2,3 5/8 <cymch bd>4 \fiveEnd }
 sevenOpen = \drummode {
   \time 2,2,3 7/8 <hh bd>8 hh <hho bd>4 <sn hhp>8 hh \hhTriplet
 }
@@ -41,7 +42,10 @@ sevenClose = \drummode {
 }
 verseGroove = { \five \sevenOpen \five \sevenClose }
 
-% Interlude riff, 4-bar phrase: 6/8 7/8 6/8 7/8, quiet then loud.
+% Interlude riff: 6/8 7/8, quiet then loud.
+quietSix = \drummode {
+  \time 6/8 <hh sn>8 hh <tomfh bd> <cymc bd> r <hh bd>
+}
 sevenRiff = \drummode {
   \time 2,2,3 7/8 <hh bd>8 hh <hh sn>16 hh hh8 <hh bd> hh
   \tuplet 3/2 { tomfh16 toml bd }
@@ -52,23 +56,24 @@ sixLoud = \drummode {
 sevenLoud = \drummode {
   \time 2,2,3 7/8 <hh sn>8 hh <rb bd> hh <rb sn> hh \tuplet 3/2 { sn16 tomh bd }
 }
-interludeQuiet = \drummode {
-  \repeat volta 2 {
-    \alternative {
-      \volta 1 { \time 6/8 <cymc sn>8 hh <tomfh bd> <cymc bd> r <hh bd> }
-      \volta 2 { \time 6/8 <hh sn>8 hh <tomfh bd> <cymc bd> r <hh bd> }
-    }
-    \sevenRiff
-  }
-}
 
-% Chorus bar after its first quarter: 5 beats.
+% Chorus, 6/4: the bar after its first quarter is 5 beats.
 chorusTail = \drummode {
   <hho bd>8^\act <hh bd> <hh bd>16 <hho sn>^\act <hho bd>8^\act
   <hho bd>^\act <hho bd>^\act \tuplet 3/2 { tomfh16 toml bd } <cymc sn>8
 }
+chorusBar = \drummode {
+  \time 6/4 <cymc bd>4 <hh sn>8^\act hh16 \ghost sn \chorusTail
+}
 
-% Verse 4 riff, 4-bar phrase: 4/4 4/4 6/8 6/8.
+% The 7/4 groove of Interludes 3 and 4.
+sevenFour = \drummode {
+  \time 7/4
+  <hh cymc bd>8 hh <hh sn>16 hh <hh cymc bd>8 hh <hh bd> <rb bd> <hh sn>
+  <tomfh bd> <cymc bd> hh <hh bd> <cymch sn>4
+}
+
+% Verse 4 riff: 4/4 4/4 6/8 6/8.
 fourA = \drummode {
   \time 4/4 <hh sn>8 hh <hh bd> <hh bd> <hh sn>16 hh hh8 <hh bd> hh
 }
@@ -78,16 +83,13 @@ fourB = \drummode {
 sixC = \drummode { \time 6/8 \repeat unfold 2 { <cymc sn>8 q hh16 bd } }
 sixD = \drummode { <cymc sn>8 q bd <cymc cymch bd> r bd }
 
-% Verse 5, 4-bar phrase: 5/8 7/8 5/8 7/8, toms and both bass drums.
+% Verse 5: 5/8 7/8 5/8 7/8, toms and both bass drums.
 fiveSext = \drummode {
   \time 2,3 5/8 <toml tomfh>8^\act tomfh16 bd \flam sn8^\act \sextuplet
 }
 sevenSext = \drummode {
   \time 2,2,3 7/8 <toml tomfh>8^\act tomfh16 bd <toml tomfh>8^\act tomfh16 bd
   \flam sn8^\act \sextuplet
-}
-fiveTri = \drummode {
-  \time 2,3 5/8 <toml tomfh>8^\act \tomTriplet \flam sn8^\act \sextuplet
 }
 
 % Outro, one bar of 4/4 per riff turn.
@@ -109,7 +111,7 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Intro"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×2, rest"
+      <>^\markup \bold "2×"
       \bar ".|:-|"
       \repeat volta 2 {
         \drummode {
@@ -120,17 +122,9 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
           }
         }
       }
-      <>^\markup \bold "4-bar phrase ×2"
+      <>^\markup \bold "2×"
       <>_\markup "Snare wires off."
-      \repeat volta 2 {
-        \drummode {
-          \alternative {
-            \volta 1 { \time 2,3 5/8 <tomh bd>8 hh \fiveEnd }
-            \volta 2 { \five }
-          }
-          \sevenOpen \five \sevenClose
-        }
-      }
+      \repeat volta 2 { \verseGroove }
       \bar "|."
     }
   }
@@ -141,20 +135,11 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Verse 1"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×4"
+      <>^\markup \bold "4×"
       \bar ".|:-|"
       \repeat volta 4 {
         \drummode {
-          \alternative {
-            \volta 1,4 { \time 2,3 5/8 <cymch bd>4 \fiveEnd }
-            \volta 2 { \five }
-            \volta 3 { \time 2,3 5/8 <cymc bd>4 \fiveEnd }
-          }
-          \sevenOpen
-          \alternative {
-            \volta 1,2,3 { \five }
-            \volta 4 { \time 2,3 5/8 <cymc bd>4 \fiveEnd }
-          }
+          \chinaFive \sevenOpen \five
           \alternative {
             \volta 1,2,3 { \sevenClose }
             \volta 4 {
@@ -165,7 +150,7 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
         }
       }
       \bar ":|."
-      <>^\markup \bold "4-bar phrase ×2, toms"
+      <>^\markup \bold "2×"
       \repeat volta 2 {
         \drummode {
           \time 2,3 5/8 <tomh bd>8 hh <hh sn> hh \tuplet 3/2 { <tomh bd>16 tomh tomh }
@@ -194,9 +179,10 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Interlude 1"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×2"
+      <>^\markup \bold "2×"
       \bar ".|:-|"
-      \interludeQuiet
+      \repeat volta 2 { \quietSix \sevenRiff }
+      <>^\markup \bold "2×"
       \repeat volta 2 {
         \drummode {
           \sixLoud
@@ -219,23 +205,11 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Verse 2"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×4"
+      <>^\markup \bold "4×"
       \bar ".|:-|"
       \repeat volta 4 {
         \drummode {
-          \alternative {
-            \volta 1 { \time 2,3 5/8 <cymch bd>4 \fiveEnd }
-            \volta 2 { \five }
-            \volta 3 { \time 2,3 5/8 <cymc bd>4 \fiveEnd }
-            \volta 4 { \time 2,3 5/8 <rb bd>4 \fiveEnd }
-          }
-          \alternative {
-            \volta 1,2,3 { \sevenOpen }
-            \volta 4 {
-              \time 2,2,3 7/8 <rb bd>4 <hho bd> <sn hhp>8 hh \hhTriplet
-            }
-          }
-          \five
+          \chinaFive \sevenOpen \five
           \alternative {
             \volta 1,2,3 { \sevenClose }
             \volta 4 {
@@ -255,9 +229,10 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Interlude 2"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×2"
+      <>^\markup \bold "2×"
       \bar ".|:-|"
-      \interludeQuiet
+      \repeat volta 2 { \quietSix \sevenRiff }
+      <>^\markup \bold "2×"
       \repeat volta 2 {
         \drummode {
           \sixLoud
@@ -280,18 +255,10 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \new DrumVoice = "all" {
       \voiceOne
       \numericTimeSignature
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \repeat volta 2 {
-        \drummode {
-          \time 6/4
-          \alternative {
-            \volta 1 { <cymch bd>4 <hh sn>8^\act hh16 \ghost sn \chorusTail }
-            \volta 2 { <cymc bd>4 <hh sn>8^\act hh16 \ghost sn \chorusTail }
-          }
-        }
-      }
+      \repeat volta 3 { \chorusBar }
       \drummode {
-        <cymc bd>4 <hho sn>8^\act hho16 \ghost sn \chorusTail
         \time 11/8
         <cymc bd>4 <hho sn>8^\act hho16 \ghost sn <hho bd>8^\act <hho bd>16
         hhp <hh bd> <hho sn>^\act <hho bd>8^\act <hho bd>^\act <hho bd>^\act
@@ -309,20 +276,13 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Verse 3"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×4"
+      <>^\markup \bold "4×"
       \bar ".|:-|"
       \repeat volta 4 {
         \drummode {
+          \five \sevenOpen \five
           \alternative {
-            \volta 1,2,3 { \five }
-            \volta 4 { \time 2,3 5/8 <hh bd>8 hh <hh sn>16 bd hh8 \hhTriplet }
-          }
-          \sevenOpen \five
-          \alternative {
-            \volta 1,3 { \sevenClose }
-            \volta 2 {
-              \time 2,2,3 7/8 <hh bd>8 hh <hh bd> <hh bd> <hh sn> hh \hhTriplet
-            }
+            \volta 1,2,3 { \sevenClose }
             \volta 4 {
               \time 2,2,3 7/8 <hh bd>8 hh <hh bd> <hh bd>16\< bd <hho sn>8 hho
               \tuplet 3/2 { tomfh16 toml bd\! }
@@ -340,23 +300,18 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Interlude 3"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×2"
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \interludeQuiet
+      \repeat volta 3 { \quietSix \sevenRiff }
       \drummode {
-        \time 6/8 <hh sn>8 hh <tomfh bd> <cymc bd> r <hh bd>
-        \sevenRiff
         \sixLoud
         \time 4/4 <hh sn>8^\act hh16 sn^\act <sn bd>8^\act sn16 tomh^\act
         <toml bd>8^\act <sn bd>16 toml^\act <sn bd>8 <tomfh sn bd>16 toml^\act
-        \break
-        \time 7/4
-        <cymc bd>4 sn8 <cymc bd> r bd~ <cymc bd> sn <tomfh bd> <cymc bd> r bd
-        <cymch sn>4
-        <hh cymc bd>8 hh <hh sn>16 hh <hh cymc bd>8 hh <hh bd> <rb bd>
-        <hh sn> <tomfh bd> <cymc bd> hh <hh bd> <cymch sn>4
-        <hh cymc bd>8 hh <hh sn>16 hh <hh cymc bd>8 hh16 hh <hh bd>8 <rb bd>
-        sn <tomfh bd> <cymc bd> hh <hh cymc bd> sn <cymch sn>
+      }
+      <>^\markup \bold "3×"
+      \bar ".|:-|"
+      \repeat volta 3 { \sevenFour }
+      \drummode {
         \time 5/4
         <cymc bd>8 <hh sn>16 bd hh tomh <cymc bd>8 <hh sn>16 bd hh tomh
         <rb bd>8 <toml sn tomfh bd> <toml sn bd> <cymc bd>
@@ -376,7 +331,7 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
         \compressEmptyMeasures
         \override MultiMeasureRest.expand-limit = 1
       }
-      <>^\markup \bold "4-bar phrase ×12, rest"
+      <>^\markup \bold "12×"
       \bar ".|:-|"
       \repeat volta 12 {
         \drummode { \time 6/8 R2.*3 \time 9/8 R8*9 }
@@ -402,7 +357,7 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
         \time 2/4 r4 r8 \tuplet 3/2 { tomfh16 tomh bd }
         <toml sn>8^\act <tomfh bd> <toml sn bd>^\act <tomfh bd>
       }
-      <>^\markup \bold "3-bar phrase ×2, swell"
+      <>^\markup \bold "2×"
       \bar ".|:-|"
       \repeat volta 2 {
         \drummode {
@@ -428,20 +383,9 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \new DrumVoice = "all" {
       \voiceOne
       \numericTimeSignature
-      <>^\markup \bold "4-bar phrase ×2"
+      <>^\markup \bold "2×"
       \bar ".|:-|"
-      \repeat volta 2 {
-        \drummode {
-          \fourA \fourB
-          \alternative {
-            \volta 1 { \sixC \sixD }
-            \volta 2 {
-              \time 6/8 <cymc sn>8 q hh16 bd <cymc sn>8 q hh16 bd32 bda
-              <cymc sn>8 q bd <cymc cymch bd> r <hh bd>
-            }
-          }
-        }
-      }
+      \repeat volta 2 { \fourA \fourB \sixC \sixD }
       \drummode {
         \time 5/4
         <hh sn>16 bd <toml tomfh> <cymc bd> r16 tomh8 <cymc bd>16
@@ -460,14 +404,10 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Interlude 4"
     \new DrumVoice = "all" {
       \voiceOne
+      <>^\markup \bold "3×"
+      \bar ".|:-|"
+      \repeat volta 3 { \sevenFour }
       \drummode {
-        \time 7/4
-        <hh bd>8^\act hh <hh sn> <hh cymc bd> hh <hh bd> <rb bd> <hh sn>
-        <tomfh bd> <cymc bd> hh <hh bd> <cymch sn>4
-        <hh cymc bd>8 hh <hh sn>16 hh <hh cymc bd>8 hh <hh bd> <rb bd> <hh sn>
-        <tomfh bd> <cymc bd> r bd <cymch sn>4
-        <hh cymc bd>8 hh <hh sn> <hh cymc bd> hh <hh bd> <rb bd> <hh sn>
-        <tomfh bd> <cymc bd> hh <hh bd> <rb sn>8 hh16 bd32 bda
         \time 3/4
         <hh sn>8 q <hh bd> <hh toml> <hh toml bd> <hh sn bd>
       }
@@ -481,43 +421,14 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
     \set DrumStaff.instrumentName = #"Verse 5"
     \new DrumVoice = "all" {
       \voiceOne
-      <>^\markup \bold "4-bar phrase ×4"
-      \drummode {
-        \time 2,3 5/8 <toml tomfh bd>8^\act tomfh16 bd \flam sn8^\act tomfh16 bd
-        \tomTriplet
-        \time 2,2,3 7/8 <toml tomfh>8^\act tomfh16 bd <toml tomfh>8^\act
-        \tomTriplet \flam sn8^\act \sextuplet
-        \time 2,3 5/8 <toml tomfh>8^\act tomfh16 bd <toml tomfh>8^\act tomfh16 bd
-        \tomTriplet
-        \time 2,2,3 7/8 <toml tomfh>8^\act tomfh16 bd <toml tomfh>8^\act
-        tomfh16 bd \flam sn8^\act tomfh16 bd \tomTriplet
-      }
+      <>^\markup \bold "4×"
       \bar ".|:-|"
-      \repeat volta 2 { \fiveSext \sevenSext }
-      \bar ".|:-|"
-      \repeat volta 2 {
+      \repeat volta 4 {
         \drummode {
-          \fiveTri
+          \fiveSext \sevenSext \fiveSext
           \alternative {
-            \volta 1 {
-              \time 2,2,3 7/8 <toml tomfh>8^\act tomfh16 bd <toml tomfh>8^\act
-              \tomTriplet \flam sn8^\act \sextuplet
-            }
-            \volta 2 {
-              \time 2,2,3 7/8
-              \repeat unfold 2 {
-                \tuplet 6/4 { <toml tomfh>16^\act bd bda tomfh bd bda }
-              }
-              \tuplet 3/2 { \flam sn16^\act bd bda } \sextuplet
-            }
-          }
-          \fiveTri
-          \alternative {
-            \volta 1 {
-              \time 2,2,3 7/8 <toml tomfh>8^\act \tomTriplet <toml tomfh>8^\act
-              \tomTriplet \flam sn8^\act \sextuplet
-            }
-            \volta 2 {
+            \volta 1,2,3 { \sevenSext }
+            \volta 4 {
               \time 2,2,3 7/8 <toml tomfh>8^\act \tomTriplet <tomh tomfh>8^\act
               \tomTriplet \flam sn8^\act
               \tuplet 6/4 { tomh16 tomh tomh tomh toml toml }
@@ -538,11 +449,8 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
       \numericTimeSignature
       \drummode {
         \time 4/4
-        \repeat percent 3 { <cymc bd>8 \tomTriplet \outroTail }
-        <cymc bd>8 tomfh16 bd \outroTail
-        \tuplet 6/4 { <cymch tomfh>16^\act bd bda tomfh bd bda }
-        \sextFlam \sextChord \sextChord
-        \repeat percent 2 {
+        \repeat percent 4 { <cymc bd>8 \tomTriplet \outroTail }
+        \repeat percent 3 {
           \tuplet 6/4 { <toml tomfh>16^\act bd bda tomfh bd bda }
           \sextFlam \sextChord \sextChord
         }
