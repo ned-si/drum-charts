@@ -32,7 +32,7 @@
       \bar ".|:-|"
       \repeat volta 8 {
         \drummode {
-          <toml bd>8 <tomfh bd> <tomfh bd> bd <cymch sn> bd <cymr bd> hho
+          <toml tomfh>8 bd <toml tomfh> bd <cymch sn> bd <cymr bd> hho
           \alternative {
             \volta 1,2,3,4,5,6,7 {
               hhp8 r hhp r <cymc sn hhp>4 r
@@ -151,7 +151,7 @@
       \bar ":|."
       \drummode {
         \repeat unfold 8 { <sn tomfh bd>8 }
-        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfl bd> sn4 r
+        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfh bd> sn4 r
       }
       \bar "|."
     }
@@ -291,7 +291,7 @@
         <cymc bd>8 bd <hh bd> bd <hh sn> bd <hh sn> bd
         <hh bd>8 sn hh bd <hh sn> bd <hh bd> bd
         \repeat unfold 8 { <sn tomfh bd>8 }
-        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfl bd> sn4 r
+        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfh bd> sn4 r
       }
       \bar "|."
     }
@@ -346,7 +346,7 @@
               <cymc sn>8 bd cymr bd <cymch sn> bd <cymc sn> bd
             }
             \volta 4 {
-              <cymc sn>8 bd cymr bd <cymch sn> bd tomh16 toml tomfh tomfl
+              <cymc sn>8 bd cymr bd <cymch sn> bd tomh16 toml tomfh tomfh
             }
           }
         }
@@ -434,12 +434,12 @@
       \numericTimeSignature
       \voiceOne
       \drummode {
-        <tomfl bd>8 r2. r8
+        <tomfh bd>8 r2. r8
         \compressEmptyMeasures
         \override MultiMeasureRest.expand-limit = 1
         R1*5
         <hho sn>8 <hho bd> r <hho bd> r <hho bd> <hho sn> <hho bd>
-        r8 <hho bd> r <hho bd> sn16 sn toml toml <tomfh bd> tomfh tomfl tomfl
+        r8 <hho bd> r <hho bd> sn16 sn toml toml <tomfh bd> tomfh tomfh tomfh
       }
       \bar ".|:-|"
       \repeat volta 2 {
@@ -453,8 +453,8 @@
           <cymc bd>8 r cymc r <cymc sn> r cymc bd
           \alternative {
             \volta 1 {
-              <cymc bd>8 sn16 sn sn sn sn sn toml toml sn sn tomfh tomfh tomfl
-              tomfl
+              <cymc bd>8 sn16 sn sn sn sn sn toml toml sn sn tomfh tomfh tomfh
+              tomfh
             }
             \volta 2 {
               <cymc bd>8 r <cymc bd> r sn16 sn <toml bd> <toml bd> toml toml
@@ -496,10 +496,10 @@
         <cymc sn>8 bd cymr bd <cymc sn> bd16 cymc sn8 bd
         <cymc sn>8 bd cymr bd <cymc sn> bd cymr bd
         <cymc sn>8 bd cymr bd <cymc sn> bd <cymc sn> bd
-        sn16 sn sn sn <toml bd> <toml bd> tomfh tomfh tomfl tomfl bd bd sn sn sn
+        sn16 sn sn sn <toml bd> <toml bd> tomfh tomfh tomfh tomfh bd bd sn sn sn
         sn
-        <toml bd>16 <toml bd> toml toml tomfh tomfh <tomfh bd> <tomfh bd> tomfl
-        tomfl toml8 tomfh tomfl
+        <toml bd>16 <toml bd> toml toml tomfh tomfh <tomfh bd> <tomfh bd> tomfh
+        tomfh toml8 tomfh tomfh
       }
       \bar "|."
     }
@@ -527,18 +527,18 @@
       }
       \bar ":|."
       \drummode {
-        <cymc tomfh bd>8 <tomfh bd> tomfl <tomfl bd> <cymc sn tomfh> <tomfh bd>
-        <tomfl bd> tomfl
-        cymc8 tomfh tomfh <tomfh bd> <cymc sn tomfh> <tomfl bd> <tomfl bd> hho
-        <cymc tomfh bd hhp>8 <tomfh bd> tomfl <tomfl bd> <cymc sn tomfh>
-        <tomfh bd> tomfl tomfl
+        <cymc tomfh bd>8 <tomfh bd> tomfh <tomfh bd> <cymc sn tomfh> <tomfh bd>
+        <tomfh bd> tomfh
+        cymc8 tomfh tomfh <tomfh bd> <cymc sn tomfh> <tomfh bd> <tomfh bd> hho
+        <cymc tomfh bd hhp>8 <tomfh bd> tomfh <tomfh bd> <cymc sn tomfh>
+        <tomfh bd> tomfh tomfh
         cymc8 tomfh tomfh bd <cymc sn> bd <cymc sn> r
         \break
         <cymc bd>8 bd bd r <cymc sn> bd bd r
         cymc8 bd16 bd bd8 bd <cymc sn> bd bd hho
         <cymc bd hhp>8 bd bd r <cymc sn> bd bd r
         cymc8 bd16 bd bd8 bd <cymc sn> bd <cymc sn> r
-        <sn tomfh>8 q q r <tomfh tomfl bd> q q r
+        <sn tomfh>8 q q r <tomfh bd> q q r
         R1
       }
       \bar "|."
