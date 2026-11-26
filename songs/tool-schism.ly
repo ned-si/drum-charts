@@ -40,7 +40,6 @@ sevenOpen = \drummode {
 sevenClose = \drummode {
   \time 2,2,3 7/8 <hh bd>8 hh <hh bd> <hho bd> <sn hhp> hh \hhTriplet
 }
-verseGroove = { \five \sevenOpen \five \sevenClose }
 
 % Interlude riff: 6/8 7/8, quiet then loud.
 quietSix = \drummode {
@@ -124,7 +123,15 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
       }
       <>^\markup \bold "2×"
       <>_\markup "Snare wires off."
-      \repeat volta 2 { \verseGroove }
+      \repeat volta 2 {
+        \drummode {
+          \alternative {
+            \volta 1 { \time 2,3 5/8 <tomh bd>8 hh \fiveEnd }
+            \volta 2 { \five }
+          }
+          \sevenOpen \five \sevenClose
+        }
+      }
       \bar "|."
     }
   }
@@ -450,7 +457,9 @@ sextFlam = \drummode { \tuplet 6/4 { \flam sn16^\act bd bda tomfh bd bda } }
       \drummode {
         \time 4/4
         \repeat percent 4 { <cymc bd>8 \tomTriplet \outroTail }
-        \repeat percent 3 {
+        \tuplet 6/4 { <cymch tomfh>16^\act bd bda tomfh bd bda }
+        \sextFlam \sextChord \sextChord
+        \repeat percent 2 {
           \tuplet 6/4 { <toml tomfh>16^\act bd bda tomfh bd bda }
           \sextFlam \sextChord \sextChord
         }
