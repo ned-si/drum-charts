@@ -45,14 +45,20 @@ In progress, listed here until their pull request merges: none.
 | `lib/definitions.ly` | Note heads, staff positions and the shortcuts every song uses |
 | `lib/audio.ly` | Turns the scores of a song into one MIDI file |
 | `Makefile` | The build, locally and in CI |
-| `.github/workflows/build.yaml` | The CI build and release |
+| `scripts/site-data.py` | Turns the PDFs of a build into the site data of [charts.nedsi.io](https://charts.nedsi.io): page images, PDFs and `charts.json` |
+| `site-data.Dockerfile` | The data image `ghcr.io/ned-si/drum-charts`: the site data only, never run |
+| `.github/workflows/build.yaml` | The CI build, release and data image |
 | `archive/` | The older charts with feet stems down, kept as they were; not built |
 
 ## Naming
 
 - One file per song: `<artist>-<title>.ly`, lower case, words joined by
   `-` (`korn-here-to-stay.ly`, `ratm-killing-in-the-name.ly`). The PDF and
-  the MP3 have the same base name.
+  the MP3 have the same base name. The base name is the chart's URL on
+  the site: lower-case words joined by `-`, at most 80 characters.
+- In the `\header`, `title` is the artist and `subtitle` the song, each
+  one plain quoted string (`title = "Tool"`, `subtitle = "Schism"`); the
+  site reads them, and CI fails on a `\markup` or an escaped quote there.
 - A new song starts in `drafts/` and moves to `songs/` when it is finished;
   then move it from Next to the Songs table above.
 - A chart fits on 2 A4 pages, so it never needs a page turn. A long song
@@ -146,13 +152,23 @@ The `build` workflow runs on every push to any branch:
    SHA-256. It fails if an MP3 is silent or a PDF has more than 3 pages,
    and warns at 3 pages unless the song is marked long. It then uploads
    the PDFs and MP3s as the artifact `drum-charts-<sha>` (kept 7 days).
+   `scripts/site-data.py` builds the site data (`make site-data`
+   locally), uploaded as `site-data-<sha>`.
 2. `release`, on `main` only: creates the release
-   `charts-<date>-<short sha>` with every PDF and MP3 of that build.
+   `charts-<date>-<short sha>` with every PDF and MP3 of that build. The
+   PDFs are not reproducible, so a rerun replaces the release's assets
+   with its own.
+3. `site-data`, on `main` only: checks the PDFs of the site data are the
+   release's, publishes the site data as `ghcr.io/ned-si/drum-charts:<sha>`
+   (linux/amd64 and linux/arm64, with a signed provenance and a cosign
+   signature), and moves `:main` to it when the commit is still the head
+   of `main`. ned-si/homelab builds charts.nedsi.io from `:main`.
 
 Actions are pinned to commit SHAs. The workflow token is read-only except
-for `contents: write` in the `release` job. Releases replace the PDFs that
-used to be committed in `pdf/`: they do not expire, link to the file itself
-and are tied to the commit they were built from.
+for `contents: write` in the `release` job and `packages: write` (with the
+OIDC token and attestations) in the `site-data` job. Releases replace the
+PDFs that used to be committed in `pdf/`: they do not expire, link to the
+file itself and are tied to the commit they were built from.
 
 ## License
 
