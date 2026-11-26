@@ -38,7 +38,7 @@
               hhp8 r hhp r <cymc sn hhp>4 r
             }
             \volta 8 {
-              hhp8 r hhp r <sn hhp> sn sn sn
+              hhp8 r hhp r \flam <sn hhp> sn sn sn
             }
           }
         }
@@ -95,7 +95,7 @@
               \tuplet 3/2 { hh8 r hh } hh8 hh <cymc sn> r hho r
             }
             \volta 4 {
-              hh8 hh16 hh hh8 hh sn sn sn sn
+              hh8 hh16 hh hh8 hh \flam sn sn sn sn
             }
           }
         }
@@ -130,7 +130,7 @@
             }
             \volta 4 {
               <hho sn>8 bd
-              <hho bd>8 sn hho bd sn sn sn sn
+              <hho bd>8 sn hho bd \flam sn sn sn sn
             }
           }
         }
@@ -276,7 +276,7 @@
             }
             \volta 4 {
               <hho sn>8 bd
-              <hho bd>8 sn hho bd sn sn sn sn
+              <hho bd>8 sn hho bd \flam sn sn sn sn
             }
           }
         }
@@ -391,7 +391,7 @@
         <cymc bd>8 bd bd r <cymc sn> bd bd r
         cymc8 bd16 bd bd8 bd <cymc sn> bd <cymr bd> hho
         <cymc bd hhp>8 bd bd r <cymc sn> bd bd r
-        cymc8 bd16 bd bd8 bd <cymc sn> sn sn sn
+        cymc8 bd16 bd bd8 bd \flam <sn cymc> sn sn sn
       }
       \bar ".|:-|"
       <>^\markup \bold "3×"
