@@ -55,10 +55,13 @@ In progress, listed here until their pull request merges: none.
 - One file per song: `<artist>-<title>.ly`, lower case, words joined by
   `-` (`korn-here-to-stay.ly`, `ratm-killing-in-the-name.ly`). The PDF and
   the MP3 have the same base name. The base name is the chart's URL on
-  the site: lower-case words joined by `-`, at most 80 characters.
+  the site: lower-case words joined by `-`, at most 80 characters, and
+  not `fr`, `pdf`, `pages`, `legend` or `set-theme` (paths of the site).
 - In the `\header`, `title` is the artist and `subtitle` the song, each
   one plain quoted string (`title = "Tool"`, `subtitle = "Schism"`); the
-  site reads them, and CI fails on a `\markup` or an escaped quote there.
+  site reads them, and CI fails on a `\markup` or an escaped quote there,
+  on a commented-out `% title = ...` line, and on a one-line
+  `\header { ... }`: `\header {` and its closing `}` each take a line.
 - A new song starts in `drafts/` and moves to `songs/` when it is finished;
   then move it from Next to the Songs table above.
 - A chart fits on 2 A4 pages, so it never needs a page turn. A long song

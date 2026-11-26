@@ -27,6 +27,8 @@ HEADER_START = re.compile(r"^\s*\\header\s*\{\s*$")
 FIELD = re.compile(r'^\s*(title|subtitle)\s*=\s*"([^"\\]*)"\s*$', re.M)
 ANY_FIELD = re.compile(r"\b(title|subtitle)\s*=")
 MAX_PAGES = 3
+# The homelab generator's rule for artist and title: no Cc, U+2028, U+2029.
+CONTROL = re.compile("[\x00-\x1f\x7f-\x9f\u2028\u2029]")
 
 SVG_NS = "http://www.w3.org/2000/svg"
 XLINK_NS = "http://www.w3.org/1999/xlink"
@@ -41,6 +43,7 @@ ATTRIBUTES = {
 }
 HREF = re.compile(r"^#[A-Za-z0-9_.:-]+$")
 URL = re.compile(r"^url\(#[A-Za-z0-9_.:-]+\)$")
+VIEWBOX = re.compile(r"^0 0 ([0-9]+(\.[0-9]+)?) ([0-9]+(\.[0-9]+)?)$")
 SVG_START = re.compile(r"<svg\b[^>]*>")
 BACKGROUND = '<rect width="100%" height="100%" fill="#ffffff"/>'
 
@@ -73,6 +76,8 @@ def header_fields(text):
         value = fields[name][0]
         if not 1 <= len(value) <= 100:
             raise Invalid("the header %s must be 1 to 100 characters" % name)
+        if CONTROL.search(value):
+            raise Invalid("the header %s holds a control or line separator character" % name)
         values.append(value)
     return values[0], values[1]
 
@@ -94,11 +99,18 @@ def check_svg(data):
     """Raise Invalid unless the SVG holds only the allow-listed markup."""
     parser = expat.ParserCreate(namespace_separator=" ")
     problems = []
+    root = []
 
     def start(name, attrs):
         ns, _, local = name.rpartition(" ")
         if ns != SVG_NS or local not in ELEMENTS:
             problems.append("element %s" % name.replace(" ", ":"))
+        if not root:
+            root.append(local)
+            box = VIEWBOX.match(attrs.get("viewBox", ""))
+            if local != "svg" or not box or not all(
+                    0 < float(v) <= 10000 for v in box.group(1, 3)):
+                problems.append("root svg viewBox %r" % attrs.get("viewBox"))
         for key, value in attrs.items():
             ans, _, alocal = key.rpartition(" ")
             if ans == XLINK_NS:
@@ -109,7 +121,8 @@ def check_svg(data):
                 problems.append("attribute %s" % alocal)
             elif alocal in ("href", "xlink:href") and not HREF.match(value):
                 problems.append("%s=%r" % (alocal, value))
-            elif "url(" in value and not URL.match(value):
+            # CSS function names are case-insensitive and take escapes.
+            elif "\\" in value or ("url(" in value.lower() and not URL.match(value)):
                 problems.append("%s=%r" % (alocal, value))
 
     def doctype(*_):
@@ -168,7 +181,9 @@ def main():
     def error(path, message):
         nonlocal failed
         failed = True
-        print("::error file=%s::%s" % (path, message))
+        # Workflow-command escaping, so a multi-line stderr stays one annotation.
+        text = str(message).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print("::error file=%s::%s" % (path, text))
 
     songs = []
     # By stem: "a-b.ly" sorts before "a.ly", but slug "a" before "a-b".
