@@ -190,8 +190,11 @@ The `build` workflow runs on every push to any branch:
    site-data` locally), uploaded as `site-data-<sha>`.
 2. `release`, on the head of `main` only: publishes a release per chart
    built, named by its version tag and holding its PDF and MP3 (the
-   legend: its PDF). Each is a draft until its files are uploaded, then
-   published as GitHub's Latest, so Latest is the chart version published
+   legend: its PDF). Its git tag points at the commit of the run, since
+   the workflow token cannot tag a commit whose workflow differs from
+   `main`'s; the tag name and the notes give the version commit. Each is
+   a draft until its files are uploaded, then published as GitHub's
+   Latest, so Latest is the chart version published
    last.
 3. `site-data`, on the head of `main` only: checks the PDFs of the site
    data are the releases', and compares the site data with the files of

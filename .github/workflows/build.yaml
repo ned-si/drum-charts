@@ -161,7 +161,9 @@ jobs:
           path: charts
       # A draft until every asset is uploaded. An existing release is a draft
       # left by a failed run or one the plan saw incomplete: --clobber makes
-      # it hold this build's files, which the site data holds.
+      # it hold this build's files, which the site data holds. The tag points
+      # at the head of main: GITHUB_TOKEN cannot tag a commit whose workflows
+      # differ from main's, which every older version commit's do.
       - name: Publish a release per chart built
         if: steps.head.outputs.head == 'true'
         env:
@@ -175,7 +177,7 @@ jobs:
             if out=$(gh release view "$tag" --json isDraft 2>&1); then
               gh release upload "$tag" "${files[@]}" --clobber
             elif [[ $out == *"release not found"* ]]; then
-              gh release create "$tag" "${files[@]}" --draft --target "$commit" \
+              gh release create "$tag" "${files[@]}" --draft --target "$GITHUB_SHA" \
                 --title "$tag" --notes "Chart of $commit, built by $run."
             else
               echo "$out" >&2; exit 1
