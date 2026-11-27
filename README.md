@@ -11,6 +11,8 @@ between sections for the parts that come back.
 
 ## Songs
 
+Read or download every chart at [charts.nedsi.io](https://charts.nedsi.io/).
+
 14 finished songs in `songs/`. The PDF and MP3 links point to the
 [latest release](https://github.com/ned-si/drum-charts/releases/latest).
 
