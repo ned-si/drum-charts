@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Build the site data of charts.nedsi.io from the PDFs of one build.
+"""Build the site data of charts.nedsi.io from the PDFs of every chart.
 
-Usage: site-data.py --release <tag> --commit <sha> <build dir> <out dir>
+Usage: site-data.py --plan <plan.json> <pdf dir> <out dir>
 
 Writes <slug>.pdf, <slug>-<n>.svg (and legend.*) and charts.json to <out dir>.
-The contract (slugs, header fields, SVG allow-list, manifest) is
-ned-si/homelab .kiro/specs/drum-charts-site/design.md#drum-charts-the-site-data;
-the homelab generator checks the same allow-list again.
+The plan (scripts/release-plan.py) names each chart's release. The contract
+(slugs, header fields, SVG allow-list, manifest) is ned-si/homelab
+.kiro/specs/drum-charts-site/design.md#drum-charts-the-site-data, manifest
+schema 2 in .kiro/specs/drum-charts-per-song-releases/design.md; the homelab
+generator checks the same allow-list again.
 """
 
 import argparse
+import datetime
 import json
 import re
 import shutil
@@ -23,6 +26,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SLUG = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 # Paths of the site a song must not shadow.
 RESERVED = {"fr", "pdf", "pages", "legend", "set-theme"}
+COMMIT = re.compile(r"^[0-9a-f]{40}$")
+DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 HEADER_START = re.compile(r"^\s*\\header\s*\{\s*$")
 FIELD = re.compile(r'^\s*(title|subtitle)\s*=\s*"([^"\\]*)"\s*$', re.M)
 ANY_FIELD = re.compile(r"\b(title|subtitle)\s*=")
@@ -167,10 +172,54 @@ def render_pages(pdf, pages, out, base):
     shutil.copyfile(pdf, out / ("%s.pdf" % base))
 
 
+def valid_date(text):
+    if not isinstance(text, str) or not DATE.match(text):
+        return False
+    try:
+        datetime.date.fromisoformat(text)
+    except ValueError:
+        return False
+    return True
+
+
+def read_plan(path, slugs, error):
+    """Return {slug: {"commit", "release"}} from the plan; report every problem."""
+    try:
+        charts = json.loads(path.read_text(encoding="utf-8"))["charts"]
+        if not isinstance(charts, list):
+            raise TypeError("charts is not a list")
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        error(path, "not a release plan: %s" % e)
+        return {}
+    found, seen = {}, set()
+    for entry in charts:
+        slug = entry.get("slug") if isinstance(entry, dict) else None
+        if not isinstance(slug, str):
+            error(path, "an entry without a slug: %r" % (entry,))
+            continue
+        if slug in seen:
+            error(path, "%s is listed twice" % slug)
+            continue
+        seen.add(slug)
+        commit, date, tag = entry.get("commit"), entry.get("date"), entry.get("tag")
+        if not isinstance(commit, str) or not COMMIT.match(commit):
+            error(path, "%s: commit %r is not 40 lower-case hex" % (slug, commit))
+        elif not valid_date(date):
+            error(path, "%s: date %r is not a yyyy-mm-dd date" % (slug, date))
+        elif tag != "%s-%s-%s" % (slug, date, commit[:7]):
+            error(path, "%s: tag %r is not %s-%s-%s" % (slug, tag, slug, date, commit[:7]))
+        else:
+            found[slug] = {"commit": commit, "release": tag}
+    for slug in sorted(slugs - seen):
+        error(path, "%s is not in the plan" % slug)
+    for slug in sorted(seen - slugs):
+        error(path, "%s is in the plan but not in songs/" % slug)
+    return found
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--release", required=True)
-    ap.add_argument("--commit", required=True)
+    ap.add_argument("--plan", required=True, type=Path)
     ap.add_argument("build", type=Path)
     ap.add_argument("out", type=Path)
     args = ap.parse_args()
@@ -185,12 +234,16 @@ def main():
         text = str(message).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
         print("::error file=%s::%s" % (path, text))
 
-    songs = []
     # By stem: "a-b.ly" sorts before "a.ly", but slug "a" before "a-b".
-    for ly in sorted((ROOT / "songs").glob("*.ly"), key=lambda p: p.stem):
+    files = sorted((ROOT / "songs").glob("*.ly"), key=lambda p: p.stem)
+    plan = read_plan(args.plan, {"legend"} | {ly.stem for ly in files}, error)
+    songs = []
+    for ly in files:
         slug = ly.stem
         rel = "songs/%s" % ly.name
         try:
+            if slug == "charts":
+                raise Invalid("slug 'charts': the prefix of the legacy release tags")
             if not SLUG.match(slug) or len(slug) > 80 or slug in RESERVED:
                 raise Invalid("slug %r: lower-case words joined by -, at most 80 "
                               "characters, not %s" % (slug, ", ".join(sorted(RESERVED))))
@@ -201,7 +254,9 @@ def main():
         except Invalid as e:
             error(rel, e)
             continue
-        songs.append({"slug": slug, "artist": artist, "title": title, "pages": pages})
+        if slug in plan:
+            songs.append({"slug": slug, "artist": artist, "title": title,
+                          "pages": pages, **plan[slug]})
 
     legend_pages = 0
     try:
@@ -216,10 +271,8 @@ def main():
     if failed:
         return 1
     manifest = {
-        "schema": 1,
-        "release": args.release,
-        "commit": args.commit,
-        "legend": {"pages": legend_pages},
+        "schema": 2,
+        "legend": {"pages": legend_pages, **plan["legend"]},
         "songs": songs,
     }
     (args.out / "charts.json").write_text(
