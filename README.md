@@ -35,8 +35,7 @@ version of it, newest first, each with its PDF and MP3.
 
 ## Next
 
-In progress, listed here until their pull request merges: Stacy's Mom,
-a comment naming the recording it follows.
+In progress, listed here until their pull request merges: none.
 
 ## Layout
 
