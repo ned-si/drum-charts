@@ -2,7 +2,6 @@ LILYPOND ?= lilypond
 FLUIDSYNTH ?= fluidsynth
 FFMPEG ?= ffmpeg
 SOUNDFONT ?= /usr/share/sounds/sf2/FluidR3_GM.sf2
-TAG ?= charts-$(shell date -u +%F)-$(shell git rev-parse --short=7 HEAD)
 
 SONGS := $(notdir $(basename $(wildcard songs/*.ly)))
 LYFLAGS := -I $(CURDIR)/lib -dno-point-and-click
@@ -36,9 +35,12 @@ build/%.wav: build/%.midi
 build/%.mp3: build/%.wav
 	$(FFMPEG) -nostdin -loglevel error -y -i $< -af loudnorm=I=-16:TP=-1.5 -codec:a libmp3lame -q:a 2 $@
 
-# The site data of charts.nedsi.io, as CI builds it (scripts/site-data.py).
+# The site data of charts.nedsi.io from this build (CI uses the releases
+# of the charts it does not build). The version tags come from git.
 site-data: pdf
-	rm -rf build/site-data && python3 scripts/site-data.py --release $(TAG) --commit $$(git rev-parse HEAD) build build/site-data
+	rm -rf build/site-data
+	python3 scripts/release-plan.py build/plan.json
+	python3 scripts/site-data.py --plan build/plan.json build build/site-data
 
 clean:
 	rm -rf build
