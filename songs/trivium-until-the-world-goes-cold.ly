@@ -108,14 +108,11 @@
     \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
-      <>^\markup \bold "4×"
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \repeat volta 4 {
+      \repeat volta 3 {
         \drummode {
-          <cymc bd>8 bd <hho bd> bd <hho sn> bd
-          \volta #'() { <hho bd>8_\markup "snare 4th time" }
-          \unfolded { \volta 1,2,3 { <hho bd>8 } \volta 4 { <hho sn>8 } }
-          bd8
+          <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho bd> bd
           \alternative {
             \volta 1 {
               <hho bd>8 bd <hho bd> bd <hho sn> bd <hho bd> sn
@@ -126,11 +123,12 @@
             \volta 3 {
               hho8 sn hho bd <hho sn> bd <hho bd> sn
             }
-            \volta 4 {
-              <hho bd>8 sn hho bd \flam sn sn sn sn
-            }
           }
         }
+      }
+      \drummode {
+        <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho sn> bd
+        <hho bd>8 sn hho bd \flam sn sn sn sn
       }
       \break
       <>^\markup \bold "3×"
@@ -255,14 +253,11 @@
     \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
-      <>^\markup \bold "4×"
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \repeat volta 4 {
+      \repeat volta 3 {
         \drummode {
-          <cymc bd>8 bd <hho bd> bd <hho sn> bd
-          \volta #'() { <hho bd>8_\markup "snare 4th time" }
-          \unfolded { \volta 1,2,3 { <hho bd>8 } \volta 4 { <hho sn>8 } }
-          bd8
+          <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho bd> bd
           \alternative {
             \volta 1 {
               <hho bd>8 bd <hho bd> bd <hho sn> bd <hho bd> sn
@@ -273,11 +268,12 @@
             \volta 3 {
               hho8 sn hho bd <hho sn> bd <hho bd> sn
             }
-            \volta 4 {
-              <hho bd>8 sn hho bd \flam sn sn sn sn
-            }
           }
         }
+      }
+      \drummode {
+        <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho sn> bd
+        <hho bd>8 sn hho bd \flam sn sn sn sn
       }
       \break
       <>^\markup \bold "3×"
@@ -377,13 +373,10 @@
     \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
+      \drummode { <cymc bd>8 bd bd r <cymc sn> bd bd r }
       \bar ".|:-|"
       \repeat volta 2 {
         \drummode {
-          <cymc bd>8 bd bd r
-          \volta #'() { <cymc sn>8_\markup "kick 2nd time" }
-          \unfolded { \volta 1 { <cymc sn>8 } \volta 2 { <cymc sn bd>8 } }
-          bd8 bd r
           \volta #'() { cymc8_\markup "china 2nd time" }
           \unfolded { \volta 1 { cymc8 } \volta 2 { cymch8 } }
           bd16 bd bd8 bd <cymc sn> bd bd hho
@@ -398,7 +391,10 @@
           <cymc bd hhp>8 bd bd r <cymc sn> bd bd r
           cymc8 bd16 bd bd8 bd
           \alternative {
-            \volta 1 { <cymc sn>16 sn bd bd toml toml tomfh tomfh }
+            \volta 1 {
+              <cymc sn>16 sn bd bd toml toml tomfh tomfh
+              <cymc bd>8 bd bd r <cymc sn bd> bd bd r
+            }
             \volta 2 { \flam <sn cymc>8 sn sn sn }
           }
         }
