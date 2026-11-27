@@ -11,6 +11,7 @@
   composer = "nedsi"
   tagline = #f
 }
+% Recording: Welcome Interstate Managers (2003).
 
 % Custom markup to create vertical space after header
 \markup {
