@@ -33,13 +33,10 @@
       \repeat volta 8 {
         \drummode {
           <toml tomfh>8 bd <toml tomfh> bd <cymch sn> bd <cymr bd> hho
+          hhp8 r hhp r
           \alternative {
-            \volta 1,2,3,4,5,6,7 {
-              hhp8 r hhp r <cymc sn hhp>4 r
-            }
-            \volta 8 {
-              hhp8 r hhp r \flam <sn hhp> sn sn sn
-            }
+            \volta 1,2,3,4,5,6,7 { <cymc sn hhp>4 r }
+            \volta 8 { \flam <sn hhp>8 sn sn sn }
           }
         }
       }
@@ -111,31 +108,28 @@
     \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \repeat volta 4 {
+      \repeat volta 3 {
         \drummode {
-          <cymc bd>8 bd <hho bd> bd <hho sn> bd
+          <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho bd> bd
           \alternative {
             \volta 1 {
-              <hho bd> bd
               <hho bd>8 bd <hho bd> bd <hho sn> bd <hho bd> sn
             }
             \volta 2 {
-              <hho bd>8 bd
               hho8 sn hho bd <hho sn> bd <hho bd> sn16 sn
             }
             \volta 3 {
-              <hho bd>8 bd
               hho8 sn hho bd <hho sn> bd <hho bd> sn
-            }
-            \volta 4 {
-              <hho sn>8 bd
-              <hho bd>8 sn hho bd \flam sn sn sn sn
             }
           }
         }
       }
-      \bar ":|."
+      \drummode {
+        <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho sn> bd
+        <hho bd>8 sn hho bd \flam sn sn sn sn
+      }
       \break
       \drummode {
         <cymc bd>8 bd <hh bd> bd <hh sn> bd <hh sn> bd
@@ -257,31 +251,28 @@
     \new DrumVoice = "all" {
       \numericTimeSignature
       \voiceOne
+      <>^\markup \bold "3×"
       \bar ".|:-|"
-      \repeat volta 4 {
+      \repeat volta 3 {
         \drummode {
-          <cymc bd>8 bd <hho bd> bd <hho sn> bd
+          <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho bd> bd
           \alternative {
             \volta 1 {
-              <hho bd> bd
               <hho bd>8 bd <hho bd> bd <hho sn> bd <hho bd> sn
             }
             \volta 2 {
-              <hho bd>8 bd
               hho8 sn hho bd <hho sn> bd <hho bd> sn16 sn
             }
             \volta 3 {
-              <hho bd>8 bd
               hho8 sn hho bd <hho sn> bd <hho bd> sn
-            }
-            \volta 4 {
-              <hho sn>8 bd
-              <hho bd>8 sn hho bd \flam sn sn sn sn
             }
           }
         }
       }
-      \bar ":|."
+      \drummode {
+        <cymc bd>8 bd <hho bd> bd <hho sn> bd <hho sn> bd
+        <hho bd>8 sn hho bd \flam sn sn sn sn
+      }
       \break
       \drummode {
         <cymc bd>8 bd <hh bd> bd <hh sn> bd <hh sn> bd
@@ -341,13 +332,10 @@
       \repeat volta 4 {
         \drummode {
           <cymc sn>8 bd cymr bd <cymc sn> bd cymr bd
+          <cymc sn>8 bd cymr bd <cymch sn> bd
           \alternative {
-            \volta 1,2,3 {
-              <cymc sn>8 bd cymr bd <cymch sn> bd <cymc sn> bd
-            }
-            \volta 4 {
-              <cymc sn>8 bd cymr bd <cymch sn> bd tomh16 toml tomfh tomfh
-            }
+            \volta 1,2,3 { <cymc sn> bd }
+            \volta 4 { tomh16 toml tomfh tomfh }
           }
         }
       }
@@ -478,13 +466,10 @@
       \repeat volta 4 {
         \drummode {
           <cymc sn>8 bd cymr bd <cymc sn> bd cymr bd
+          <cymc sn>8 bd cymr bd <cymc sn> bd
           \alternative {
-            \volta 1,2,3 {
-              <cymc sn>8 bd cymr bd <cymc sn> bd <cymc sn> bd
-            }
-            \volta 4 {
-              <cymc sn>8 bd cymr bd <cymc sn> bd toml16 toml <tomfh bd> tomfh
-            }
+            \volta 1,2,3 { <cymc sn> bd }
+            \volta 4 { toml16 toml <tomfh bd> tomfh }
           }
         }
       }
