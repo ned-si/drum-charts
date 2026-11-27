@@ -145,7 +145,7 @@
       \bar ":|."
       \drummode {
         \repeat unfold 8 { <sn tomfh bd>8 }
-        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfh bd> sn4 r
+        <sn tomfh bd>8 q sn16 toml tomfh bd \flam sn4 r
       }
       \bar "|."
     }
@@ -282,7 +282,7 @@
         <cymc bd>8 bd <hh bd> bd <hh sn> bd <hh sn> bd
         <hh bd>8 sn hh bd <hh sn> bd <hh bd> bd
         \repeat unfold 8 { <sn tomfh bd>8 }
-        <sn tomfh bd>8 q <sn bd>16 <toml bd> tomfh <tomfh bd> sn4 r
+        <sn tomfh bd>8 q sn16 toml tomfh bd \flam sn4 r
       }
       \bar "|."
     }
